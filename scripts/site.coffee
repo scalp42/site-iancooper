@@ -1,3 +1,4 @@
+alert 'stuff'
 
 class Site
   constructor: (user, repo) ->
@@ -58,6 +59,5 @@ class GitHub
       success: callback
 
 site = new Site 'icooper', 'site-iancooper'
-
 articles = site.listArticles()
 console.dir articles
