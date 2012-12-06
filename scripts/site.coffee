@@ -4,7 +4,7 @@ class Site
     @gh = new GitHub user, repo
     @articles = { }
 
-  articles: (callback) ->
+  listArticles: (callback) ->
     if @articles.length is 0
       @gh.tree 'gh-pages', (data) =>
         found is no
@@ -59,5 +59,5 @@ class GitHub
 
 site = new Site
 
-articles = site.articles()
+articles = site.listArticles()
 console.dir articles
