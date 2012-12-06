@@ -116,7 +116,7 @@
 
   })();
 
-  site = new Site;
+  site = new Site('icooper', 'site-iancooper');
 
   articles = site.listArticles();
 

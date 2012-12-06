@@ -57,7 +57,7 @@ class GitHub
       error: => @warn 'blob', url, arguments
       success: callback
 
-site = new Site
+site = new Site 'icooper', 'site-iancooper'
 
 articles = site.listArticles()
 console.dir articles
