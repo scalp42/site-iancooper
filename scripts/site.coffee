@@ -4,7 +4,7 @@ class Site
     @articles = []
 
   parseName = (name) ->
-    parts = name.match /^([0-9]{4})-([0-9]{2})-([0-9]{2})-([0-9]{4}?)-(.+)$/
+    parts = name.match /^([0-9]{4})-([0-9]{2})-([0-9]{2})-([0-9]{4})?-?(.+)$/
     console.dir parts
 
     {
