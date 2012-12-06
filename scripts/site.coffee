@@ -15,8 +15,8 @@ class Site
     if @articles.length is 0
       @gh.tree 'gh-pages', (data) =>
         found is no
-        for item in data.tree and found is no
-          if item.path is 'articles'
+        for item in data.tree
+          if item.path is 'articles' and found is no
             found = yes
             @gh.tree item.sha, (data) =>
               for article in data.tree

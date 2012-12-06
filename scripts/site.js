@@ -24,11 +24,11 @@ Site = (function() {
       return this.gh.tree('gh-pages', function(data) {
         var found, item, _i, _len, _ref, _results;
         found === false;
-        _ref = data.tree && found === false;
+        _ref = data.tree;
         _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           item = _ref[_i];
-          if (item.path === 'articles') {
+          if (item.path === 'articles' && found === false) {
             found = true;
             _results.push(_this.gh.tree(item.sha, function(data) {
               var article, attr, _j, _len1, _ref1;
