@@ -24,7 +24,7 @@ class Site
                 if article.type is 'blob'
                   attr = parseName article.path
                   if typeof attr is 'object'
-                    @articles.push = attr
+                    @articles.push attr
               callback @articles
     else
       callback @articles
@@ -54,8 +54,8 @@ class GitHub
       dataType: 'jsonp'
       error: => @warn 'blob', url, arguments
       success: (data) =>
-        data.content = window.atob data.content if data.encoding is 'base64'
-        callback data
+        data.data.content = window.atob data.content if data.encoding is 'base64'
+        callback data.data
 
   data: (url, callback) ->
     url = "#{@www}/#{url}"

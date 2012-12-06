@@ -39,7 +39,7 @@ Site = (function() {
                 if (article.type === 'blob') {
                   attr = parseName(article.path);
                   if (typeof attr === 'object') {
-                    _this.articles.push = attr;
+                    _this.articles.push(attr);
                   }
                 }
               }
@@ -102,9 +102,9 @@ GitHub = (function() {
       },
       success: function(data) {
         if (data.encoding === 'base64') {
-          data.content = window.atob(data.content);
+          data.data.content = window.atob(data.content);
         }
-        return callback(data);
+        return callback(data.data);
       }
     });
   };
