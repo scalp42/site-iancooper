@@ -11,7 +11,7 @@ Site = (function() {
 
   parseName = function(name) {
     var parts;
-    if (parts = name.match(/^([0-9]{4})-([0-9]{2})-([0-9]{2})-([0-9]{4})?-(.+)$/)) {
+    if (parts = name.match(/^([0-9]{4})-([0-9]{2})-([0-9]{2})-([0-9]{4}?)-(.+)$/)) {
       console.dir(parts);
     }
     return {
