@@ -3,10 +3,6 @@ class Site
   constructor: (user, repo) ->
     @gh = new GitHub user, repo
     @articles = { }
-    if Modernizr.localstorage
-      @cache = window.localStorage
-    else
-      @cache = no
 
   articles: (callback) ->
     if @articles.length is 0
@@ -16,7 +12,12 @@ class Site
           if item.path is 'articles'
             found = yes
             @gh.tree item.sha, (data) =>
-              for
+              for article in data.tree
+                if article.type is 'blob'
+                  attr = parseName article.path
+                  if typeof attr is 'object'
+                    @articles[attr.slug] = attr
+              callback @articles
     else
       callback @articles
 
@@ -36,7 +37,7 @@ class GitHub
       url: url
       dataType: 'jsonp'
       error: => @warn 'tree', url, arguments
-      success: (data) => callback data.tree
+      success: (data) => callback data
 
   blob: (id, callback) ->
     url = "#{@api}/blobs/#{id}"
