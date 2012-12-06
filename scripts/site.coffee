@@ -1,5 +1,3 @@
-alert 'stuff'
-
 class Site
   constructor: (user, repo) ->
     @gh = new GitHub user, repo
