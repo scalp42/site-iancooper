@@ -23,7 +23,8 @@ Site = (function() {
     if (this.articles.length === 0) {
       return this.gh.tree('gh-pages', function(data) {
         var found, item, _i, _len, _ref, _results;
-        found === false;
+        console.dir(data);
+        found = false;
         _ref = data.tree;
         _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {

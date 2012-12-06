@@ -14,7 +14,8 @@ class Site
   loadArticles: (callback) ->
     if @articles.length is 0
       @gh.tree 'gh-pages', (data) =>
-        found is no
+        console.dir data
+        found = no
         for item in data.tree
           if item.path is 'articles' and found is no
             found = yes
