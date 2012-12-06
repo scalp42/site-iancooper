@@ -45,7 +45,7 @@ class GitHub
       url: url
       dataType: 'jsonp'
       error: => @warn 'tree', url, arguments
-      success: (data) => callback data
+      success: (data) => callback data.data
 
   blob: (id, callback) ->
     url = "#{@api}/blobs/#{id}"

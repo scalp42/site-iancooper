@@ -85,7 +85,7 @@ GitHub = (function() {
         return _this.warn('tree', url, arguments);
       },
       success: function(data) {
-        return callback(data);
+        return callback(data.data);
       }
     });
   };
