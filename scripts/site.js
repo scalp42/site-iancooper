@@ -10,7 +10,9 @@ Site = (function() {
   }
 
   parseName = function(name) {
-    console.log('parsing name: ' + name);
+    if (name.match(/^([0-9]{4})-([0-9]{2})-([0-9]{2})-([0-9]{4})?-(.+)$/, parts)) {
+      console.dir(parts);
+    }
     return {
       slug: 'slug',
       date: '2012-01-01',
