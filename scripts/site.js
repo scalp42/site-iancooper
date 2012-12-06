@@ -2,11 +2,21 @@
 var GitHub, Site, site;
 
 Site = (function() {
+  var parseName;
 
   function Site(user, repo) {
     this.gh = new GitHub(user, repo);
-    this.articles = {};
+    this.articles = [];
   }
+
+  parseName = function(name) {
+    console.log('parsing name: ' + name);
+    return {
+      slug: 'slug',
+      date: '2012-01-01',
+      url: 'artices/2012-01-01-slug'
+    };
+  };
 
   Site.prototype.loadArticles = function(callback) {
     var _this = this;
@@ -28,7 +38,7 @@ Site = (function() {
                 if (article.type === 'blob') {
                   attr = parseName(article.path);
                   if (typeof attr === 'object') {
-                    _this.articles[attr.slug] = attr;
+                    _this.articles.push = attr;
                   }
                 }
               }

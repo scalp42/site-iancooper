@@ -1,7 +1,15 @@
 class Site
   constructor: (user, repo) ->
     @gh = new GitHub user, repo
-    @articles = { }
+    @articles = []
+
+  parseName = (name) ->
+    console.log 'parsing name: ' + name
+    {
+      slug: 'slug'
+      date: '2012-01-01'
+      url: 'artices/2012-01-01-slug'
+    }
 
   loadArticles: (callback) ->
     if @articles.length is 0
@@ -15,7 +23,7 @@ class Site
                 if article.type is 'blob'
                   attr = parseName article.path
                   if typeof attr is 'object'
-                    @articles[attr.slug] = attr
+                    @articles.push = attr
               callback @articles
     else
       callback @articles
