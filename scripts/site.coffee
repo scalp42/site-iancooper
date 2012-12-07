@@ -51,7 +51,11 @@ class GitHub
       url: url
       dataType: 'jsonp'
       error: => @warn 'tree', url, arguments
-      success: (data) => callback data.data
+      success: (data) =>
+        if data.data.message?
+          alert data.data.message
+        else
+          callback data.data
 
   blob: (id, callback) ->
     url = "#{@api}/blobs/#{id}"
@@ -60,8 +64,11 @@ class GitHub
       dataType: 'jsonp'
       error: => @warn 'blob', url, arguments
       success: (data) =>
-        data.data.content = window.atob data.content if data.encoding is 'base64'
-        callback data.data
+        if data.data.message?
+          alert data.data.message
+        else
+          data.data.content = window.atob data.content if data.encoding is 'base64'
+          callback data.data
 
   raw: (url, callback) ->
     url = "#{@www}/#{url}"
@@ -69,7 +76,11 @@ class GitHub
       url: url
       dataType: 'html'
       error: => @warn 'blob', url, arguments
-      success: callback
+      success: =>
+        if data.data.message?
+          alert data.data.message
+        else
+          callback data.data
 
 site = new Site 'icooper', 'site-iancooper'
 site.loadArticles (articles) -> console.dir articles

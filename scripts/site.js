@@ -93,7 +93,11 @@ GitHub = (function() {
         return _this.warn('tree', url, arguments);
       },
       success: function(data) {
-        return callback(data.data);
+        if (data.data.message != null) {
+          return alert(data.data.message);
+        } else {
+          return callback(data.data);
+        }
       }
     });
   };
@@ -109,10 +113,14 @@ GitHub = (function() {
         return _this.warn('blob', url, arguments);
       },
       success: function(data) {
-        if (data.encoding === 'base64') {
-          data.data.content = window.atob(data.content);
+        if (data.data.message != null) {
+          return alert(data.data.message);
+        } else {
+          if (data.encoding === 'base64') {
+            data.data.content = window.atob(data.content);
+          }
+          return callback(data.data);
         }
-        return callback(data.data);
       }
     });
   };
@@ -126,7 +134,13 @@ GitHub = (function() {
       error: function() {
         return _this.warn('blob', url, arguments);
       },
-      success: callback
+      success: function() {
+        if (data.data.message != null) {
+          return alert(data.data.message);
+        } else {
+          return callback(data.data);
+        }
+      }
     });
   };
 
