@@ -14,7 +14,7 @@ Site = (function() {
     parts = name.match(/^([0-9]{4}-[0-9]{2}-[0-9]{2})-([0-9]{2})([0-9]{2})-(.+)\.([a-z]{2,4})$/i);
     console.dir(parts);
     if (parts !== null) {
-      date = moment(("" + parts[1] + "T" + parts[2] + ":" + parts[3])('YYYY-MM-DDTHH:mm'));
+      date = moment("" + parts[1] + "T" + parts[2] + ":" + parts[3], 'YYYY-MM-DDTHH:mm');
       return {
         date: date,
         slug: parts[4],
