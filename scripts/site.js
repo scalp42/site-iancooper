@@ -11,7 +11,7 @@ Site = (function() {
 
   parseName = function(name) {
     var date, parts;
-    parts = name.match(/^(([0-9]{4})-([0-9]{2})-([0-9]{2}))-(([0-9]{2}){2})?-?(.+)\.([a-z]{2,4})$/i);
+    parts = name.match(/^(([0-9]{4})-([0-9]{2})-([0-9]{2}))-([0-9]{2})([0-9]{2})-(.+)\.([a-z]{2,4})$/i);
     console.dir(parts);
     if (parts !== null) {
       date = moment("" + parts[2] + "-" + parts[3] + "-" + parts[4] + "T");
