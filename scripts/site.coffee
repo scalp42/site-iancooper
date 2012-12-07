@@ -4,14 +4,16 @@ class Site
     @articles = []
 
   parseName = (name) ->
-    parts = name.match /^([0-9]{4})-([0-9]{2})-([0-9]{2})-([0-9]{4})?-?(.+)$/
+    parts = name.match /^(([0-9]{4})-([0-9]{2})-([0-9]{2}))-([0-9]{4})?-?(.+)\.([a-z]{2,4})$/i
     console.dir parts
-
-    {
-      slug: 'slug'
-      date: '2012-01-01'
-      url: 'artices/2012-01-01-slug'
-    }
+    if parts isnt null
+      date = moment
+      {
+        date: date
+        slug: parts[5]
+        type: parts[6]
+        url: parts[0]
+      }
 
   loadArticles: (callback) ->
     if @articles.length is 0
@@ -38,7 +40,7 @@ class GitHub
 
   constructor: (user, repo) ->
     @api = "https://api.github.com/repos/#{user}/#{repo}/git"
-    @www = "https://github.com/#{user}/#{repo}/blob/gh-pages"
+    @www = "https://raw.github.com/#{user}/#{repo}/gh-pages"
     @warn = GitHub.warn
 
   tree: (id, callback) ->
@@ -59,7 +61,7 @@ class GitHub
         data.data.content = window.atob data.content if data.encoding is 'base64'
         callback data.data
 
-  data: (url, callback) ->
+  raw: (url, callback) ->
     url = "#{@www}/#{url}"
     $.ajax
       url: url

@@ -10,14 +10,18 @@ Site = (function() {
   }
 
   parseName = function(name) {
-    var parts;
-    parts = name.match(/^([0-9]{4})-([0-9]{2})-([0-9]{2})-([0-9]{4})?-?(.+)$/);
+    var date, parts;
+    parts = name.match(/^(([0-9]{4})-([0-9]{2})-([0-9]{2}))-([0-9]{4})?-?(.+)\.([a-z]{2,4})$/i);
     console.dir(parts);
-    return {
-      slug: 'slug',
-      date: '2012-01-01',
-      url: 'artices/2012-01-01-slug'
-    };
+    if (parts !== null) {
+      date = moment;
+      return {
+        date: date,
+        slug: parts[5],
+        type: parts[6],
+        url: parts[0]
+      };
+    }
   };
 
   Site.prototype.loadArticles = function(callback) {
@@ -72,7 +76,7 @@ GitHub = (function() {
 
   function GitHub(user, repo) {
     this.api = "https://api.github.com/repos/" + user + "/" + repo + "/git";
-    this.www = "https://github.com/" + user + "/" + repo + "/blob/gh-pages";
+    this.www = "https://raw.github.com/" + user + "/" + repo + "/gh-pages";
     this.warn = GitHub.warn;
   }
 
@@ -111,7 +115,7 @@ GitHub = (function() {
     });
   };
 
-  GitHub.prototype.data = function(url, callback) {
+  GitHub.prototype.raw = function(url, callback) {
     var _this = this;
     url = "" + this.www + "/" + url;
     return $.ajax({
