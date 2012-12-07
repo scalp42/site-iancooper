@@ -10,8 +10,8 @@ class Site
       date = moment "#{parts[1]}T#{parts[2]}:#{parts[3]}" 'YYYY-MM-DDTHH:mm'
       {
         date: date
-        slug: parts[5]
-        type: parts[6]
+        slug: parts[4]
+        type: parts[5]
         url: parts[0]
       }
     else
