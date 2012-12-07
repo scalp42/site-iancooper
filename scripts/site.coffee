@@ -7,13 +7,15 @@ class Site
     parts = name.match /^([0-9]{4}-[0-9]{2}-[0-9]{2})-([0-9]{2})([0-9]{2})-(.+)\.([a-z]{2,4})$/i
     console.dir parts
     if parts isnt null
-      date = moment "#{parts[2]}-#{parts[3]}-#{parts[4]}T"
+      date = moment "#{parts[1]}T#{parts[2]}:#{parts[3]}" 'YYYY-MM-DDTHH:mm'
       {
         date: date
         slug: parts[5]
         type: parts[6]
         url: parts[0]
       }
+    else
+      false
 
   loadArticles: (callback) ->
     if @articles.length is 0
