@@ -12,21 +12,6 @@ time_zones =
     '-0300': [ no,    'ADT'   ]
     '-0230': [ no,    'NDT'   ]
 
-# convert images into stretchy images
-convertimg = (img) ->
-  img = $ img
-  url = img.attr 'src'
-  ratio = img.height() / img.width()
-  div = $ document.createElement 'div'
-  div.css
-    width: '100%'
-    backgroundImage: "url(#{url})"
-    backgroundSize: 'cover'
-    backgroundRepeat: 'no-repeat'
-    backgroundPosition: '50% 50%'
-  img.replaceWith div
-  $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
-
 # set my preferred am/pm format
 moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
 
@@ -84,6 +69,24 @@ routing = (map) ->
 
 # wait until the DOM is parsed and ready
 $ ->
+
+  # convert images into stretchy images
+  $('body').bind 'DOMNodeInsertedIntoDocument', (event) ->
+    console.dir event
+
+#  convertimg = (img) ->
+#    img = $ img
+#    url = img.attr 'src'
+#    ratio = img.height() / img.width()
+#    div = $ document.createElement 'div'
+#    div.css
+#      width: '100%'
+#      backgroundImage: "url(#{url})"
+#      backgroundSize: 'cover'
+#      backgroundRepeat: 'no-repeat'
+#      backgroundPosition: '50% 50%'
+#    img.replaceWith div
+#    $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
 
   # load posts index
   load 'posts/index.json', yes, (data) ->
