@@ -1,7 +1,5 @@
 posts = []
-config =
-  max_posts: 3
-  time_zones:
+time_zones =
     # UTC       ST     DT
     '-1000': [ 'HAST', no ]
     '-0900': [ 'AKST', 'HADT' ]
@@ -49,7 +47,7 @@ show = (post) ->
     $('#post').empty()
     date = post.moment.format 'MMMM d, YYYY'
     time = post.moment.format 'h:mm a'
-    tz = config.time_zones[post.moment.format 'ZZ'][if post.moment.isDST() then 1 else 0]
+    tz = time_zones[post.moment.format 'ZZ'][if post.moment.isDST() then 1 else 0]
     tz = post.moment.format 'ZZ' unless tz
     article = $ document.createElement 'article'
     article.append "<header><h1>#{post.title}</h1><h2>#{date} @ #{time} #{tz}</h2></header>"
@@ -86,7 +84,8 @@ $ ->
     posts.sort (a, b) -> b.dateValue - a.dateValue
 
     # display the last few posts in a list
-    max = if posts.length > config.max_posts then config.max_posts else posts.length
+    max_recent = $('#posts').attr 'data-max-recent'
+    max = if posts.length > max_recent then max_recent else posts.length
     $('#posts').append "<li><a href=\"#{posts[i].slug}\">#{posts[i].title} <span class=\"date\">#{posts[i].date}</span></a></li>" for i in [0...max]
 
     # set up the routing
