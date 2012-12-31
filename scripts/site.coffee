@@ -19,7 +19,7 @@ moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
 convertimg = (img) ->
   img = $ img
   url = img.attr 'src'
-  dimensions = url.match /\/w([0-9]+)-h([0-9])-/
+  dimensions = url.match /\/w([0-9]+)-h([0-9]+)-/
   if dimensions?
     console.dir dimensions
     ratio = dimensions[1] / dimensions[0]
