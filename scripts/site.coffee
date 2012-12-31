@@ -22,7 +22,7 @@ convertimg = (img) ->
   dimensions = url.match /\/w([0-9]+)-h([0-9]+)-/
   if dimensions?
     console.dir dimensions
-    ratio = dimensions[1] / dimensions[0]
+    ratio = dimensions[2] / dimensions[1]
     div = $ document.createElement 'div'
     div.css
       width: '100%'
