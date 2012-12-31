@@ -90,6 +90,9 @@ routing = (map) ->
 # wait until the DOM is parsed and ready
 $ ->
 
+  # add 'contact me' link
+  $('#pages').append '<li><a href="mailto:me+website@iancooper.name">Contact</a></li>'
+
   # load posts index
   load 'posts/index.json', yes, (data) ->
     posts = []
