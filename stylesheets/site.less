@@ -1,29 +1,41 @@
-@body-color: rgb(255, 255, 255);
-@nav-color: rgba(0, 0, 0, 0.15);
+// background colors
+@body-bgcolor: rgb(255, 255, 255);
+@nav-bgcolor: rgba(0, 0, 0, 0.15);
+
+// font defaults
 @font-family: 'Source Sans Pro', sans-serif;
+@font-style: normal;
+@font-line-height: 150%;
+
 
 @heading-color: rgb(68, 68, 68);
+@heading-weight: 900;
 @heading-size: 24pt;
-// style variant weight size/line-height family
-@heading-font: normal normal 900 ~"@{heading-size}/110%" 'Source Sans Pro', sans-serif;
+@heading-line-height: 110%;
 
 @text-color: rgb(136, 136, 136);
+@text-weight: 300;
+@text-size: 14pt;
+
+body {
+    background: @body-bgcolor;
+    font-family: @font-family;
+    line-height: @font-line-height;
+    color: @text-color;
+    font-weight: @text-weight;
+    font-size: @text-size;
+    margin: 0;
+    padding: 0;
+}
 
 h1, h2, h3, h4, h5, h6 {
     color: @heading-color;
-    font-family: @font-family;
+    font-weight: @heading-weight;
+    line-height: @heading-line-height;
 }
 
-body {
-    background: @body-color;
-    color: @text-color;
-    font-family: @font-family;
-    margin: 0;
-    padding: 0;
-
-    > header > h1 {
-	font: @heading-font;
-    }
+nav {
+    background: @nav-bgcolor;
 }
 
 
