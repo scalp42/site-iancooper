@@ -12,13 +12,11 @@ loadJSON = (url, callback) ->
 router = Davis () ->
   @configure (config) ->
     config.generateRequestOnPageLoad = true
-  @get '/', (request) -> alert 'home'
+  @get '/', (request) -> alert 'home page'
+  @get '/latest', (request) -> alert 'latest posts'
   @get '/:post', (request) -> alert request.params.post
 
 $ ->
-
-  # start router
-  router.start()
 
   # load posts index
   loadJSON 'posts/index.json', (data) ->
@@ -39,3 +37,6 @@ $ ->
     for i in [0...(if posts.length > max_posts then max_posts else posts.length)]
       post = posts[i]
       $('#posts').append "<li><a href=\"#{post.slug}\">#{post.title}</a> <span class=\"date\">#{post.date}</span></li>"
+
+    # start router once we've loaded this
+    router.start()
