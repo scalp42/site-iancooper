@@ -37,11 +37,25 @@ $ ->
     max = if posts.length > config.max_posts then config.max_posts else posts.length
     $('#posts').append "<li><a href=\"#{posts[i].slug}\">#{posts[i].title}</a> <span class=\"date\">#{posts[i].date}</span></li>" for i in [0...max]
 
-    # set up and start the router
+    # redirect to the latest post
+    latest = (request) -> request.redirect "/#{posts[0].slug}"
+
+    # set up the request router
     router = Davis () ->
-      @configure (config) -> config.generateRequestOnPageLoad = true
-      @get '/', (request) -> show null
-      @get '/latest', (request) -> show null
+
+      # set router options
+      @configure (config) ->
+        config.generateRequestOnPageLoad = yes
+        config.handleRouteNotFound = yes
+
+      # go to the latest page
+      @bind 'routeNotFound', latest
+      @get '/', latest
+      @get '/latest', latest
+
+      # show the about page
       @get '/about', (request) -> show 'about'
+
+      # show posts
       @get '/:post', (request) -> show request.params.post
     router.start()

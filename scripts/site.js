@@ -29,7 +29,7 @@ show = function(slug) {
 
 $(function() {
   return loadJSON('posts/index.json', function(data) {
-    var i, max, post, router, _i, _j, _len, _ref;
+    var i, latest, max, post, router, _i, _j, _len, _ref;
     posts = [];
     _ref = data.posts;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -47,16 +47,17 @@ $(function() {
     for (i = _j = 0; 0 <= max ? _j < max : _j > max; i = 0 <= max ? ++_j : --_j) {
       $('#posts').append("<li><a href=\"" + posts[i].slug + "\">" + posts[i].title + "</a> <span class=\"date\">" + posts[i].date + "</span></li>");
     }
+    latest = function(request) {
+      return request.redirect("/" + posts[0].slug);
+    };
     router = Davis(function() {
       this.configure(function(config) {
-        return config.generateRequestOnPageLoad = true;
+        config.generateRequestOnPageLoad = true;
+        return config.handleRouteNotFound = true;
       });
-      this.get('/', function(request) {
-        return show(null);
-      });
-      this.get('/latest', function(request) {
-        return show(null);
-      });
+      this.bind('routeNotFound', latest);
+      this.get('/', latest);
+      this.get('/latest', latest);
       this.get('/about', function(request) {
         return show('about');
       });
