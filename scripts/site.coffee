@@ -26,8 +26,6 @@ router = Davis () ->
 # wait until the DOM is parsed and ready
 $ ->
 
-  alert 'dom loaded'
-
   # load posts index
   loadJSON 'posts/index.json', (data) ->
     posts = []

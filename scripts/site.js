@@ -46,7 +46,6 @@ router = Davis(function() {
 });
 
 $(function() {
-  alert('dom loaded');
   return loadJSON('posts/index.json', function(data) {
     var i, max, post, _i, _j, _len, _ref;
     posts = [];
