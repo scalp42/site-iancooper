@@ -10,16 +10,29 @@ loadJSON = (url, callback) ->
     error: () -> console.dir arguments
     success: (data) -> callback data
 
+# load markdown data
+loadMarkdown = (url, callback) ->
+  $.ajax
+    url: url
+    dataType: text
+    error: () -> console.dir arguments
+    success: (data) ->
+      console.log "success"
+      console.dir arguments
+      callback data
+
 # find a post by slug
 find = (slug) ->
   _.find posts, (post) -> post.slug is slug
 
 # show a post
 show = (post) ->
+  loadMarkdown "posts/#{post.filename}"
   date = post.moment.format 'MMMM d, YYYY'
   time = post.moment.format 'HH:mm A ZZ'
   article = $ document.createElement 'article'
-  article.append "<header><h1>#{post.title}</h1><h2>#{post.datetime}</h2></header>"
+  article.append "<header><h1>#{post.title}</h1><h2>#{date} @ #{time}</h2></header>"
+  $('#post').empty().append article
 
 # set up the routes
 routing = (map) ->
