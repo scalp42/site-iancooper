@@ -58,6 +58,9 @@ $(function() {
     };
     selected = function(request) {
       post = find(request.params.post);
+      if (post == null) {
+        post = "not found";
+      }
       return console.dir(post);
     };
     router = Davis(function() {

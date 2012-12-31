@@ -48,6 +48,7 @@ $ ->
     # show the selected post
     selected = (request) ->
       post = find request.params.post
+      post ?= "not found"
       console.dir post
 
     # set up the request router
