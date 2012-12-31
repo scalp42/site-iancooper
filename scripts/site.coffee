@@ -8,4 +8,4 @@ loadJSON = (callback) ->
     success: (data) -> callback data
 
 $ ->
-  loadJSON (data) -> window.index = data.articles
+  loadJSON (data) -> console.dir data.articles
