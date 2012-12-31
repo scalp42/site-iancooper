@@ -4,7 +4,7 @@ I'm an [IT professional][communityits], web developer, and [laboratory informati
 
 I have studied at [Worcester Polytechnic Institute][wpi], [Rochester Institute of Technology][rit], and the [National Technical Institute for the Deaf][ntid], and finally graduated with a bachelor's degree from [LeTourneau University][letu].
 
-I've mostly worked in the IT field, for companies like [Microsoft][ms], [Celanese][ce], and [Thermo Fisher Scientific][thermo].  For 2013, I'm [branching out][communityits] to offer IT infrastructure configuration and management services to local startups and small businesses.
+I've mostly worked in the IT field, for companies like [Microsoft][ms], [Celanese][ce], and [Thermo Fisher Scientific][thermo].  For 2013, I'm [branching out][communityits] to begin providing IT infrastructure configuration and management services to local startups and small businesses.
 
 [![See me on LinkedIn][linkedinlogo]][linkedinprofile]</div>
 
