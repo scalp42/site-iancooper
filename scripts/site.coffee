@@ -70,7 +70,7 @@ $ ->
 
     # display the last few posts in a list
     max = if posts.length > config.max_posts then config.max_posts else posts.length
-    $('#posts').append "<li><a href=\"#{posts[i].slug}\">#{posts[i].title}</a> <span class=\"date\">#{posts[i].date}</span></li>" for i in [0...max]
+    $('#posts').append "<li><a href=\"#{posts[i].slug}\">#{posts[i].title} <span class=\"date\">#{posts[i].date}</span></a></li>" for i in [0...max]
 
     # set up the routing
     routing
