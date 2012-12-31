@@ -12,7 +12,7 @@ loadJSON = (url, callback) ->
 
 # show a page
 show = (slug) ->
-  slug ?= 'asdf'
+  slug ?= posts[0].slug
   console.log "slug = #{slug}"
 
 # wait until the DOM is parsed and ready

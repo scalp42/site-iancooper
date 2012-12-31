@@ -22,7 +22,7 @@ loadJSON = function(url, callback) {
 
 show = function(slug) {
   if (slug == null) {
-    slug = 'asdf';
+    slug = posts[0].slug;
   }
   return console.log("slug = " + slug);
 };
