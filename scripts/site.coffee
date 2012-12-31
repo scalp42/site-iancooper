@@ -1,25 +1,28 @@
 posts = []
 max_posts = 2
 
-loadJSON = (url, callback) ->
+load = (url, callback) ->
   $.ajax
     url: url
     dataType: 'json'
     error: () -> console.dir arguments
     success: (data) -> callback data
 
+
+
 # set up the router
 router = Davis () ->
   @configure (config) ->
     config.generateRequestOnPageLoad = true
-  @get '/', (request) -> alert 'home page'
-  @get '/latest', (request) -> alert 'latest posts'
-  @get '/:post', (request) -> alert request.params.post
+  @get '/', (request) -> show null
+  @get '/latest', (request) -> show null
+  @get '/about', (request) -> show 'about'
+  @get '/:post', (request) -> show request.params.post
 
 $ ->
 
   # load posts index
-  loadJSON 'posts/index.json', (data) ->
+  load 'posts/index.json', (data) ->
     posts = []
 
     # format post dates
