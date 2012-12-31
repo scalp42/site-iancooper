@@ -43,7 +43,7 @@ find = function(slug) {
 
 show = function(post) {
   var article, date, time;
-  loadMarkdown("posts/" + post.filename);
+  loadMarkdown("posts/" + post.file);
   date = post.moment.format('MMMM d, YYYY');
   time = post.moment.format('HH:mm A ZZ');
   article = $(document.createElement('article'));
