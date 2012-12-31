@@ -36,7 +36,7 @@ show = (post) ->
     time = post.moment.format 'h:mm A ZZ'
     article = $ document.createElement 'article'
     article.append "<header><h1>#{post.title}</h1><h2>#{date} @ #{time}</h2></header>"
-    article.append "<section>#{markup markdown}</section>"
+    article.append "<section>#{post.html}</section>"
     $('section > h1', article).first().remove()
     $('#post').append article
 
