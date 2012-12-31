@@ -8,14 +8,16 @@ loadJSON = (url, callback) ->
     error: () -> console.dir arguments
     success: (data) -> callback data
 
-# set up davis app
-app = Davis () ->
+# set up the router
+router = Davis () ->
+  @configure (config) ->
+    config.generateRequestOnPageLoad = true
   @get '/:post', (request) -> alert request.params.post
 
 $ ->
 
-  # start davis
-  app.start()
+  # start router
+  router.start()
 
   # load posts index
   loadJSON 'posts/index.json', (data) ->
