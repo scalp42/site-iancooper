@@ -1,12 +1,30 @@
-@bodycolor: rgb(255, 255, 255);
-@navcolor: rgba(0, 0, 0, 0.15);
-@headingcolor: rgb(68, 68, 68);
-@textcolor: rgb(136, 136, 136);
+@body-color: rgb(255, 255, 255);
+@nav-color: rgba(0, 0, 0, 0.15);
+@font-family: 'Source Sans Pro', sans-serif;
 
-body {
-    background: @bodycolor;
-    color: @textcolor;
-    margin: 0;
-    padding: 0;
+@heading-color: rgb(68, 68, 68);
+@heading-size: 24pt;
+// style variant weight size/line-height family
+@heading-font: normal normal 900 ~"@{heading-size}/110%" 'Source Sans Pro', sans-serif;
+
+@text-color: rgb(136, 136, 136);
+
+h1, h2, h3, h4, h5, h6 {
+    color: @heading-color;
+    font-family: @font-family;
 }
 
+body {
+    background: @body-color;
+    color: @text-color;
+    font-family: @font-family;
+    margin: 0;
+    padding: 0;
+
+    > header > h1 {
+	font: @heading-font;
+    }
+}
+
+
+    
