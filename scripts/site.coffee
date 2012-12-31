@@ -23,6 +23,7 @@ convertimg = (img) ->
   if dimensions?
     console.dir dimensions
     ratio = dimensions[2] / dimensions[1]
+    console.log ratio
     div = $ document.createElement 'div'
     div.css
       width: '100%'
