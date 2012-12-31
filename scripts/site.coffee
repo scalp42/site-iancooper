@@ -1,6 +1,21 @@
 posts = []
 config =
   max_posts: 3
+  time_zones:
+    # UTC       ST     DT
+    '-1000': [ 'HAST', no ]
+    '-0900': [ 'AKST', 'HADT' ]
+    '-0800': [ 'PST',  'AKDT' ]
+    '-0700': [ 'MST',  'PDT'  ]
+    '-0600': [ 'CST',  'MDT'  ]
+    '-0500': [ 'EST',  'CDT'  ]
+    '-0400': [ 'AST',  'EDT'  ]
+    '-0330': [ 'NST',  no     ]
+    '-0300': [ no,    'ADT'   ]
+    '-0230': [ no,    'NDT'   ]
+
+# set my preferred am/pm format
+moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
 
 # convert markdown to html
 markup = (markdown) ->
@@ -33,9 +48,11 @@ show = (post) ->
     console.dir "using cached html for #{post.slug}"
     $('#post').empty()
     date = post.moment.format 'MMMM d, YYYY'
-    time = post.moment.format 'h:mm A ZZ'
+    time = post.moment.format 'h:mm a'
+    tz = config.time_zones[post.moment.format 'ZZ'][if post.moment.isDST() then 1 else 0]
+    tz = post.moment.format 'ZZ' unless tz
     article = $ document.createElement 'article'
-    article.append "<header><h1>#{post.title}</h1><h2>#{date} @ #{time}</h2></header>"
+    article.append "<header><h1>#{post.title}</h1><h2>#{date} @ #{time} #{tz}</h2></header>"
     article.append "<section>#{post.html}</section>"
     $('section > h1', article).first().remove()
     $('#post').append article
