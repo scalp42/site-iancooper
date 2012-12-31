@@ -55,7 +55,6 @@ show = (post) ->
     article.append "<section>#{post.html}</section>"
     $('section > h1', article).first().remove()
     post.append article
-    $('img[alt^="stretch"]', post).each () -> convertimg @
 
 # set up the routes
 routing = (map) ->
