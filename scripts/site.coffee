@@ -121,7 +121,7 @@ $ ->
         latest: (request) ->
           for i in [0..posts.length]
             if posts[i].status is 'published'
-              request.redirect "/#{posts[0].slug}"
+              request.redirect "/#{posts[i].slug}"
               break
 
         # show the selected post
