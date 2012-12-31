@@ -7,6 +7,9 @@ loadArticles = function(callback) {
     dataType: 'json',
     success: function(data) {
       return callback(data);
+    },
+    error: function() {
+      return console.dir(arguments);
     }
   });
 };
