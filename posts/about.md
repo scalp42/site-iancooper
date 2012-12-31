@@ -31,7 +31,7 @@ This site is hosted by [GitHub Pages][ghp].  It has no server-side code; everyth
 [code]: https://github.com/icooper/site-iancooper/blob/gh-pages/scripts/site.coffee
 [less]: http://lesscss.org/
 [jquery]: http://www.jquery.com/
-[davisjs]: http://www.davisjs.com/
+[davisjs]: http://davisjs.com/
 [underscore]: http://underscorejs.org/
 [moment]: http://momentjs.com/
 [sourcesans]: http://www.google.com/webfonts/specimen/Source+Sans+Pro
