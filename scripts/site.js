@@ -4,7 +4,7 @@ var config, find, loadJSON, posts, routing, show;
 posts = [];
 
 config = {
-  max_posts: 2
+  max_posts: 3
 };
 
 loadJSON = function(url, callback) {

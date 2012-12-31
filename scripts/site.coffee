@@ -1,6 +1,6 @@
 posts = []
 config =
-  max_posts: 2
+  max_posts: 3
 
 # load JSON data
 loadJSON = (url, callback) ->
