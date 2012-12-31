@@ -25,7 +25,7 @@ show = (post) ->
   $('#post').empty()
   load "posts/#{post.file}", no, (markdown) ->
     date = post.moment.format 'MMMM d, YYYY'
-    time = post.moment.format 'HH:mm A ZZ'
+    time = post.moment.format 'h:mm A ZZ'
     article = $ document.createElement 'article'
     article.append "<header><h1>#{post.title}</h1><h2>#{date} @ #{time}</h2></header>"
     article.append "<section>#{markup markdown}</section>"
