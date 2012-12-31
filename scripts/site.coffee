@@ -3,7 +3,7 @@ config =
   max_posts: 2
 
 # load JSON data
-load = (url, callback) ->
+loadJSON = (url, callback) ->
   $.ajax
     url: url
     dataType: 'json'
@@ -27,7 +27,7 @@ router = Davis () ->
 $ ->
 
   # load posts index
-  load 'posts/index.json', (data) ->
+  loadJSON 'posts/index.json', (data) ->
     posts = []
 
     # format post dates
