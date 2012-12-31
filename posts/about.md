@@ -1,22 +1,24 @@
 # About Me
 
-<div style="position:absolute;top:2rem;right:2rem;">[![See me on LinkedIn][linkedinlogo]][linkedinprofile]</div>
-
 I'm an [IT professional][communityits], web developer, and [laboratory informatics consultant][thermo].
 
 I have studied at [Worcester Polytechnic Institute][wpi], [Rochester Institute of Technology][rit], and the [National Technical Institute for the Deaf][ntid], and finally graduated with a bachelor's degree from [LeTourneau University][letu].
 
-I've mostly worked in the IT field, for companies like [Microsoft], [Celanese], and [Thermo Fisher Scientific].  For 2013, I'm branching out to add
+I've mostly worked in the IT field, for companies like [Microsoft][ms], [Celanese][ce], and [Thermo Fisher Scientific][thermo].  For 2013, I'm [branching out][communityits] to offer IT infrastructure configuration and management services to local startups and small businesses.
+
+[![See me on LinkedIn][linkedinlogo]][linkedinprofile]</div>
 
 # About This Site
 
 This site is hosted by [GitHub Pages][ghp].  It has no server-side code; everything is done on the client side.  I used [CoffeeScript][coffeescript] to write the [client-side code][code] and [Less][less] to generate the stylesheet.  The font, [Source Sans Pro][sourcesans], is served up by [Google Web Fonts][gwf].  All of the posts are composed in [Markdown][md] and transformed into HTML on the client side using the [PageDown][pd] converter.
 
+[communityits]: http://www.communityits.com/
 [wpi]: http://www.wpi.edu/
 [rit]: http://www.rit.edu/
 [ntid]: http://www.ntid.edu/
 [letu]: http://www.letu.edu/
-[communityits]: http://www.communityits.com/
+[ms]: http://www.microsoft.com/
+[ce]: http://www.celanese.com/
 [thermo]: http://www.thermo.com/informatics/
 [ghp]: http://pages.github.com/
 [coffeescript]: http://coffeescript.org/
