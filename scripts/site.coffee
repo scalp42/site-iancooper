@@ -11,7 +11,7 @@ load = (url, callback) ->
 
 # show a page
 show = (slug) ->
-  slug ?= posts[0].slug
+  slug ?= 'asdf'
   console.log "slug = #{slug}"
 
 # set up the router
