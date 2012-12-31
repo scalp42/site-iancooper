@@ -12,16 +12,19 @@ time_zones =
     '-0300': [ no,    'ADT'   ]
     '-0230': [ no,    'NDT'   ]
 
-# insert an image
-image = (id, url, w, h) ->
-  div = $ "##{id}"
+# convert images into stretchy images
+convertimg = (img) ->
+  img = $ img
+  url = img.attr 'src'
+  ratio = img.height() / img.width()
+  div = $ document.createElement 'div'
   div.css
     width: '100%'
     backgroundImage: "url(#{url})"
     backgroundSize: 'cover'
     backgroundRepeat: 'no-repeat'
     backgroundPosition: '50% 50%'
-  ratio = h / w
+  img.replaceWith div
   $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
 
 # set my preferred am/pm format
@@ -56,7 +59,8 @@ show = (post) ->
       show posts[index]
   else
     console.dir "using cached html for #{post.slug}"
-    $('#post').empty()
+    post = $ '#post'
+    post.empty()
     date = post.moment.format 'MMMM D, YYYY'
     time = post.moment.format 'h:mm a'
     tz = time_zones[post.moment.format 'ZZ'][if post.moment.isDST() then 1 else 0]
@@ -65,7 +69,8 @@ show = (post) ->
     article.append "<header><h1>#{post.title}</h1><h2>#{date} @ #{time} #{tz}</h2></header>"
     article.append "<section>#{post.html}</section>"
     $('section > h1', article).first().remove()
-    $('#post').append article
+    post.append article
+    $('img[alt^="stretch"]', post).each () -> convertimg @
 
 # set up the routes
 routing = (map) ->
