@@ -70,7 +70,10 @@ show = (post) ->
     article.append "<section>#{post.html}</section>"
     $('section > h1', article).first().remove()
     container.append article
-    $('img[src$="/stretch-me"]', container).each () -> convertimg @
+    $('img[src$="#stretch-me"]', container).each () ->
+      console.log "found stretchy image"
+      console.dir @
+      convertimg @
 
 # set up the routes
 routing = (map) ->
