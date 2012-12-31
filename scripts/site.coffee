@@ -15,6 +15,21 @@ time_zones =
 # set my preferred am/pm format
 moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
 
+# stretch images
+convertimg = (img) ->
+  img = $ img
+  url = img.attr 'src'
+  ratio = img.height() / img.width()
+  div = $ document.createElement 'div'
+  div.css
+    width: '100%'
+    backgroundImage: "url(#{url})"
+    backgroundSize: 'cover'
+    backgroundRepeat: 'no-repeat'
+    backgroundPosition: '50% 50%'
+  img.replaceWith div
+  $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
+
 # convert markdown to html
 markup = (markdown) ->
   window.Converter ?= new Markdown.Converter()
@@ -44,8 +59,8 @@ show = (post) ->
       show posts[index]
   else
     console.dir "using cached html for #{post.slug}"
-    post = $ '#post'
-    post.empty()
+    container = $ '#post'
+    container.empty()
     date = post.moment.format 'MMMM D, YYYY'
     time = post.moment.format 'h:mm a'
     tz = time_zones[post.moment.format 'ZZ'][if post.moment.isDST() then 1 else 0]
@@ -54,7 +69,8 @@ show = (post) ->
     article.append "<header><h1>#{post.title}</h1><h2>#{date} @ #{time} #{tz}</h2></header>"
     article.append "<section>#{post.html}</section>"
     $('section > h1', article).first().remove()
-    post.append article
+    container.append article
+    $('img[src$="/stretch-me"]', container).each () -> convertimg @
 
 # set up the routes
 routing = (map) ->
@@ -68,24 +84,6 @@ routing = (map) ->
 
 # wait until the DOM is parsed and ready
 $ ->
-
-  # convert images into stretchy images
-  $('body').bind 'DOMNodeInsertedIntoDocument', (event) ->
-    console.dir event
-
-#  convertimg = (img) ->
-#    img = $ img
-#    url = img.attr 'src'
-#    ratio = img.height() / img.width()
-#    div = $ document.createElement 'div'
-#    div.css
-#      width: '100%'
-#      backgroundImage: "url(#{url})"
-#      backgroundSize: 'cover'
-#      backgroundRepeat: 'no-repeat'
-#      backgroundPosition: '50% 50%'
-#    img.replaceWith div
-#    $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
 
   # load posts index
   load 'posts/index.json', yes, (data) ->
