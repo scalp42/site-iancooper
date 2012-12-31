@@ -12,6 +12,7 @@ loadJSON = (url, callback) ->
 router = Davis () ->
   @configure (config) ->
     config.generateRequestOnPageLoad = true
+  @get '/', (request) -> alert 'home'
   @get '/:post', (request) -> alert request.params.post
 
 $ ->
