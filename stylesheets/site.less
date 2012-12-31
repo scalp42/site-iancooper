@@ -29,11 +29,15 @@ body {
     padding: 0;
 
     > header {
+	position: absolute;
+	top: 0;
+	right: 315px;
+	bottom: 0;
+	left: 0;
+
 	margin: 0;
 	padding: 40px 20px;
 	background: @nav-bgcolor;
-	width: 33%;
-	min-width: 200px;
 
 	> h1 {
 	    text-transform: uppercase;
@@ -42,6 +46,14 @@ body {
 	    letter-spacing: -0.05em;
 	    margin: 0 0 20px 0;
 	}
+    }
+
+    > section#post {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 315px;
     }
 }
 
