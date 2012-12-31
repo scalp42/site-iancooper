@@ -1,4 +1,4 @@
-window.index = []
+window.posts = []
 
 loadJSON = (callback) ->
   $.ajax
@@ -9,8 +9,8 @@ loadJSON = (callback) ->
 
 $ ->
   loadJSON (data) ->
-    window.index = []
-    for article in data.articles
-      article.moment = moment article.date, "YYYY-MM-DDTHH:mm"
-      window.index.push article
-    console.dir window.index
+    window.posts = []
+    for post in data.posts
+      post.moment = moment post.date, "YYYY-MM-DDTHH:mmZ"
+      window.posts.push post
+    console.dir window.posts

@@ -1,21 +1,21 @@
 {
-    "articles": [
+    "posts": [
 	{
-	    "date": "2012-12-06T1430",
+	    "date": "2012-12-06T14:30",
 	    "title": "Test #1",
 	    "slug": "test-01",
 	    "file": "2012-12-06-0230-test-01.md"
 	},
 	
 	{
-	    "date": "2012-12-06T1433",
+	    "date": "2012-12-06T14:33",
 	    "title": "Test #2",
 	    "slug": "test-02",
 	    "file": "2012-12-06-0233-test-01.md"
 	},
 	
 	{
-	    "date": "2012-12-06T1445",
+	    "date": "2012-12-06T14:45",
 	    "title": "Test #3",
 	    "slug": "test-03",
 	    "file": "2012-12-06-0245-test-01.md"
