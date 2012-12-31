@@ -58,10 +58,11 @@ $(function() {
     };
     selected = function(request) {
       post = find(request.params.post);
-      if (post == null) {
-        post = posts[0].slug;
+      if (post != null) {
+        return show(post);
+      } else {
+        return latest(request);
       }
-      return show(post);
     };
     router = Davis(function() {
       this.configure(function(config) {

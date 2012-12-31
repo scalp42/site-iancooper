@@ -48,8 +48,10 @@ $ ->
     # show the selected post
     selected = (request) ->
       post = find request.params.post
-      post ?= posts[0].slug
-      show post
+      if post?
+        show post
+      else
+        latest request
 
     # set up the request router
     router = Davis () ->
