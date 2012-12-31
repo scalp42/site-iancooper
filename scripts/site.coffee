@@ -2,7 +2,7 @@ window.posts = []
 
 loadJSON = (callback) ->
   $.ajax
-    url: 'articles/index.json'
+    url: 'posts/index.json'
     dataType: 'json'
     error: () -> console.dir arguments
     success: (data) -> callback data
