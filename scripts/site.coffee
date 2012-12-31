@@ -13,8 +13,17 @@ time_zones =
     '-0230': [ no,    'NDT'   ]
 
 # insert an image
-image = (url) ->
-  alert url
+image = (id, url, w, h) ->
+  document.writeln "<div id=\"#{id}\"></div>"
+  div = $ "##{id}"
+  div.css
+    width: '100%'
+    backgroundImage: "url(#{url})"
+    backgroundSize: 'cover'
+    backgroundRepeat: 'no-repeat'
+    backgroundPosition: '50% 50%'
+  ratio = h / w
+  $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
 
 # set my preferred am/pm format
 moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
