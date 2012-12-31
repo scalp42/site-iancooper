@@ -48,8 +48,8 @@ $ ->
     # show the selected post
     selected = (request) ->
       post = find request.params.post
-      post ?= "not found"
-      console.dir post
+      post ?= posts[0].slug
+      show post
 
     # set up the request router
     router = Davis () ->
@@ -63,9 +63,7 @@ $ ->
       @bind 'routeNotFound', latest
       @get '/', latest
       @get '/latest', latest
-
-      # show the about page
-      @get '/about', (request) -> show 'about'
+      @get 'latest', latest
 
       # show selected post
       @get '/:post', selected

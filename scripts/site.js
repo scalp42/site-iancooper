@@ -59,9 +59,9 @@ $(function() {
     selected = function(request) {
       post = find(request.params.post);
       if (post == null) {
-        post = "not found";
+        post = posts[0].slug;
       }
-      return console.dir(post);
+      return show(post);
     };
     router = Davis(function() {
       this.configure(function(config) {
@@ -71,9 +71,7 @@ $(function() {
       this.bind('routeNotFound', latest);
       this.get('/', latest);
       this.get('/latest', latest);
-      this.get('/about', function(request) {
-        return show('about');
-      });
+      this.get('latest', latest);
       this.get('/:post', selected);
       return this.get(':post', selected);
     });
