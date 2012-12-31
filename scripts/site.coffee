@@ -8,4 +8,9 @@ loadJSON = (callback) ->
     success: (data) -> callback data
 
 $ ->
-  loadJSON (data) -> console.dir data.articles
+  loadJSON (data) ->
+    window.index = []
+    for article in data.articles
+      article.moment = moment article.date, "YYYY-MM-DDTHH:mm"
+      window.index.push article
+    console.dir window.index
