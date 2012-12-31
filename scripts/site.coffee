@@ -2,24 +2,19 @@ posts = []
 config =
   max_posts: 3
 
-# load JSON data
-loadJSON = (url, callback) ->
+# convert markdown to html
+markup = (markdown) ->
+  window.Converter ?= new Markdown.Converter()
+  window.Converter.makeHtml markdown
+
+# load data
+load = (url, json, callback) ->
+  json ?= no
   $.ajax
     url: url
-    dataType: 'json'
+    dataType: if json then 'json' else 'text'
     error: () -> console.dir arguments
     success: (data) -> callback data
-
-# load markdown data
-loadMarkdown = (url, callback) ->
-  $.ajax
-    url: url
-    dataType: 'text'
-    error: () -> console.dir arguments
-    success: (data) ->
-      console.log "success"
-      console.dir arguments
-      callback data
 
 # find a post by slug
 find = (slug) ->
@@ -27,12 +22,14 @@ find = (slug) ->
 
 # show a post
 show = (post) ->
-  loadMarkdown "posts/#{post.file}"
-  date = post.moment.format 'MMMM d, YYYY'
-  time = post.moment.format 'HH:mm A ZZ'
-  article = $ document.createElement 'article'
-  article.append "<header><h1>#{post.title}</h1><h2>#{date} @ #{time}</h2></header>"
-  $('#post').empty().append article
+  $('#post').empty()
+  load "posts/#{post.file}", no, (markdown) ->
+    date = post.moment.format 'MMMM d, YYYY'
+    time = post.moment.format 'HH:mm A ZZ'
+    article = $ document.createElement 'article'
+    article.append "<header><h1>#{post.title}</h1><h2>#{date} @ #{time}</h2></header>"
+    article.append "<section>#{markup markdown}</section>"
+    $('#post').append article
 
 # set up the routes
 routing = (map) ->
@@ -48,7 +45,7 @@ routing = (map) ->
 $ ->
 
   # load posts index
-  loadJSON 'posts/index.json', (data) ->
+  load 'posts/index.json', yes, (data) ->
     posts = []
 
     # format post dates
