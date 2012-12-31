@@ -4,9 +4,7 @@ I'm an [IT professional][communityits], web developer, and [laboratory informati
 
 I have studied at [Worcester Polytechnic Institute][wpi], [Rochester Institute of Technology][rit], and the [National Technical Institute for the Deaf][ntid], and finally graduated with a bachelor's degree from [LeTourneau University][letu].
 
-<div id="about-image-01"></div><script type="text/javascript">
-  image("about-image-01", "https://lh5.googleusercontent.com/-HIElyoRcIN8/T5eDCdCjtnI/AAAAAAAACvo/TVpSrgdD2Jc/w1024-h400-n/IMG_20120423_170645.jpg", 1024, 400);
-</script>
+<div id="about-image-01"></div>
 
 I've mostly worked in the IT field, for companies like [Microsoft][ms], [Celanese][ce], and [Thermo Fisher Scientific][thermo].  For 2013, I'm [branching out][communityits] to begin providing IT infrastructure configuration and management services to local startups and small businesses.
 
@@ -15,6 +13,10 @@ I've mostly worked in the IT field, for companies like [Microsoft][ms], [Celanes
 # About This Site
 
 This site is hosted by [GitHub Pages][ghp].  It has no server-side code; everything is done on the client side.  I used [CoffeeScript][coffeescript] to write the [client-side code][code] and [Less][less] to generate the stylesheet.  The font, [Source Sans Pro][sourcesans], is served up by [Google Web Fonts][gwf].  All of the posts are composed in [Markdown][md] and transformed into HTML on the client side using the [PageDown][pd] converter.
+
+<script type="text/javascript">
+  image("about-image-01", "https://lh5.googleusercontent.com/-HIElyoRcIN8/T5eDCdCjtnI/AAAAAAAACvo/TVpSrgdD2Jc/w1024-h400-n/IMG_20120423_170645.jpg", 1024, 400);
+</script>
 
 [communityits]: http://www.communityits.com/
 [thermo]: http://www.thermo.com/informatics/
