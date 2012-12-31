@@ -19,17 +19,20 @@ moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
 convertimg = (img) ->
   img = $ img
   url = img.attr 'src'
-  ratio = img.height() / img.width()
-  div = $ document.createElement 'div'
-  div.css
-    width: '100%'
-    backgroundImage: "url(#{url})"
-    backgroundSize: 'cover'
-    backgroundRepeat: 'no-repeat'
-    backgroundPosition: '50% 50%'
-  img.replaceWith div
-  $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
-  $(window).resize()
+  dimensions = url.match /\/w([0-9]+)-h([0-9])-/
+  if dimensions?
+    console.dir dimensions
+    ratio = dimensions[1] / dimensions[0]
+    div = $ document.createElement 'div'
+    div.css
+      width: '100%'
+      backgroundImage: "url(#{url})"
+      backgroundSize: 'cover'
+      backgroundRepeat: 'no-repeat'
+      backgroundPosition: '50% 50%'
+    img.replaceWith div
+    $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
+    $(window).trigger 'resize'
 
 # convert markdown to html
 markup = (markdown) ->
