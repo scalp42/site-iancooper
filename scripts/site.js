@@ -35,7 +35,7 @@ show = function(slug) {
 
 $(function() {
   return loadJSON('posts/index.json', function(data) {
-    var i, latest, max, post, router, _i, _j, _len, _ref;
+    var i, latest, max, post, router, selected, _i, _j, _len, _ref;
     posts = [];
     _ref = data.posts;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -56,6 +56,10 @@ $(function() {
     latest = function(request) {
       return request.redirect("/" + posts[0].slug);
     };
+    selected = function(request) {
+      console.dir(request.params);
+      return post = find(request.params[0]);
+    };
     router = Davis(function() {
       this.configure(function(config) {
         config.generateRequestOnPageLoad = true;
@@ -67,10 +71,8 @@ $(function() {
       this.get('/about', function(request) {
         return show('about');
       });
-      return this.get('/:post', function(request) {
-        post = find(request.params.post);
-        return show(post);
-      });
+      this.get('/:post', selected);
+      return this.get(':post', selected);
     });
     return router.start();
   });

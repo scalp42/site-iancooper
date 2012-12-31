@@ -42,7 +42,13 @@ $ ->
     $('#posts').append "<li><a href=\"#{posts[i].slug}\">#{posts[i].title}</a> <span class=\"date\">#{posts[i].date}</span></li>" for i in [0...max]
 
     # redirect to the latest post
-    latest = (request) -> request.redirect "/#{posts[0].slug}"
+    latest = (request) ->
+      request.redirect "/#{posts[0].slug}"
+
+    # show the selected post
+    selected = (request) ->
+      console.dir request.params
+      post = find request.params[0]
 
     # set up the request router
     router = Davis () ->
@@ -61,9 +67,8 @@ $ ->
       @get '/about', (request) -> show 'about'
 
       # show selected post
-      @get '/:post', (request) ->
-        post = find request.params.post
-        show post
+      @get '/:post', selected
+      @get ':post', selected
 
     # start the router
     router.start()
