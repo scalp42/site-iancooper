@@ -47,8 +47,8 @@ $ ->
 
     # show the selected post
     selected = (request) ->
-      console.dir request.params[Object.keys(request.params)[0]]
-      post = find request.params[Object.keys(request.params)[0]]
+      post = find request.params.post
+      console.dir post
 
     # set up the request router
     router = Davis () ->
