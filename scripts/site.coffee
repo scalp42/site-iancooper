@@ -29,6 +29,7 @@ convertimg = (img) ->
     backgroundPosition: '50% 50%'
   img.replaceWith div
   $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
+  $(window).resize()
 
 # convert markdown to html
 markup = (markdown) ->
@@ -70,10 +71,7 @@ show = (post) ->
     article.append "<section>#{post.html}</section>"
     $('section > h1', article).first().remove()
     container.append article
-    $('img[src$="#stretch-me"]', container).each () ->
-      console.log "found stretchy image"
-      console.dir @
-      convertimg @
+    $('img[src$="#stretch-me"]', container).each () -> convertimg @
 
 # set up the routes
 routing = (map) ->
