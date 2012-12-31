@@ -14,7 +14,7 @@ I've mostly [worked][linkedinprofile] in the IT field, for companies like [Micro
 
 # About This Site
 
-This site is hosted by [GitHub Pages][ghp].  It has no server-side code; everything is done on the client side.  I used [CoffeeScript][coffeescript] to write the [client-side code][code] and [Less][less] to generate the stylesheet.  The font, [Source Sans Pro][sourcesans], is served up by [Google Web Fonts][gwf].  All of the posts are composed in [Markdown][md] and transformed into HTML on the client side using the [PageDown][pd] converter.
+This site is hosted by [GitHub Pages][ghp].  It has no server-side code; everything is done on the client side.  I used [CoffeeScript][coffeescript] to write the [client-side code][code] and [LESS][less] to generate the stylesheet.  The font, [Source Sans Pro][sourcesans], is served up by [Google Web Fonts][gwf].  All of the posts are composed in [Markdown][md] and transformed into HTML on the client side using the [PageDown][pd] converter.
 
 [communityits]: http://www.communityits.com/
 [thermo]: http://www.thermo.com/informatics/
