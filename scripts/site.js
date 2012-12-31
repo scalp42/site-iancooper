@@ -8,7 +8,10 @@ url = function(path) {
 loadArticles = function(callback) {
   return $.ajax({
     url: url('articles/index.json'),
-    dataType: 'json'
+    dataType: 'json',
+    success: function(data) {
+      return callback(data);
+    }
   });
 };
 
