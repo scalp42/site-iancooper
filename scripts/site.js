@@ -38,9 +38,19 @@ find = function(slug) {
 };
 
 show = function(post) {
-  $('#post').empty();
-  return load("posts/" + post.file, false, function(markdown) {
-    var article, date, time;
+  var article, date, time;
+  if (!post.html) {
+    console.dir("loading posts/" + post.file);
+    return load("posts/" + post.file, false, function(markdown) {
+      var index;
+      index = _.indexOf(posts, post);
+      posts[index].html = markup(markdown);
+      console.dir("markdown -> html saved in cache");
+      return show(posts[index]);
+    });
+  } else {
+    console.dir("using cached html for " + post.slug);
+    $('#post').empty();
     date = post.moment.format('MMMM d, YYYY');
     time = post.moment.format('h:mm A ZZ');
     article = $(document.createElement('article'));
@@ -48,7 +58,7 @@ show = function(post) {
     article.append("<section>" + (markup(markdown)) + "</section>");
     $('section > h1', article).first().remove();
     return $('#post').append(article);
-  });
+  }
 };
 
 routing = function(map) {
@@ -82,7 +92,7 @@ $(function() {
       post.moment = moment(post.date, 'YYYY-MM-DDTHH:mmZZ');
       post.date = post.moment.format('d MMM YYYY');
       post.dateValue = post.moment.valueOf();
-      post.data = null;
+      post.html = null;
       posts.push(post);
     }
     posts.sort(function(a, b) {

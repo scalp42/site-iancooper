@@ -22,8 +22,16 @@ find = (slug) ->
 
 # show a post
 show = (post) ->
-  $('#post').empty()
-  load "posts/#{post.file}", no, (markdown) ->
+  unless post.html
+    console.dir "loading posts/#{post.file}"
+    load "posts/#{post.file}", no, (markdown) ->
+      index = _.indexOf posts, post
+      posts[index].html = markup markdown
+      console.dir "markdown -> html saved in cache"
+      show posts[index]
+  else
+    console.dir "using cached html for #{post.slug}"
+    $('#post').empty()
     date = post.moment.format 'MMMM d, YYYY'
     time = post.moment.format 'h:mm A ZZ'
     article = $ document.createElement 'article'
@@ -54,7 +62,7 @@ $ ->
       post.moment = moment post.date, 'YYYY-MM-DDTHH:mmZZ'
       post.date = post.moment.format 'd MMM YYYY'
       post.dateValue = post.moment.valueOf()
-      post.data = null
+      post.html = null
       posts.push post
 
     # sort posts from newest to oldest
