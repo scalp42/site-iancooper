@@ -1,8 +1,11 @@
-loadArticles = (callback) ->
+window.index = []
+
+loadJSON = (callback) ->
   $.ajax
     url: 'articles/index.json'
     dataType: 'json'
+    error: () -> console.dir arguments
     success: (data) -> callback data
-    error: -> console.dir arguments
 
-$ -> loadArticles (articles) -> console.dir articles
+$ ->
+  loadJSON (data) -> window.index = data.articles
