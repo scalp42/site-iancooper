@@ -63,7 +63,7 @@ $ ->
       # show selected post
       @get '/:post', (request) ->
         post = find request.params.post
-        show request.params.post
+        show post
 
     # start the router
     router.start()

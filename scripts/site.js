@@ -69,7 +69,7 @@ $(function() {
       });
       return this.get('/:post', function(request) {
         post = find(request.params.post);
-        return show(request.params.post);
+        return show(post);
       });
     });
     return router.start();
