@@ -5,4 +5,4 @@ loadArticles = (callback) ->
     success: (data) ->
       callback data
 
-loadArticles (articles) -> console.dir articles
+$ -> loadArticles (articles) -> console.dir articles

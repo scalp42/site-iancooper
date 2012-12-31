@@ -11,6 +11,8 @@ loadArticles = function(callback) {
   });
 };
 
-loadArticles(function(articles) {
-  return console.dir(articles);
+$(function() {
+  return loadArticles(function(articles) {
+    return console.dir(articles);
+  });
 });
