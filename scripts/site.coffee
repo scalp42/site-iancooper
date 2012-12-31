@@ -14,7 +14,6 @@ time_zones =
 
 # insert an image
 image = (id, url, w, h) ->
-  document.writeln "<div id=\"#{id}\"></div>"
   div = $ "##{id}"
   div.css
     width: '100%'
