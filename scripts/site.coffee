@@ -47,7 +47,7 @@ $ ->
 
     # show the selected post
     selected = (request) ->
-      console.dir request.params
+      console.dir request.params[0]
       post = find request.params[0]
 
     # set up the request router

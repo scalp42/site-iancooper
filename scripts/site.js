@@ -57,7 +57,7 @@ $(function() {
       return request.redirect("/" + posts[0].slug);
     };
     selected = function(request) {
-      console.dir(request.params);
+      console.dir(request.params[0]);
       return post = find(request.params[0]);
     };
     router = Davis(function() {
