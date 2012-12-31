@@ -118,7 +118,11 @@ $ ->
     routing
       fn:
         # show the latest post
-        latest: (request) -> request.redirect "/#{posts[0].slug}"
+        latest: (request) ->
+          for i in [0..posts.length]
+            if posts[i].status is 'published'
+              request.redirect "/#{posts[0].slug}"
+              break
 
         # show the selected post
         selected: (request) ->
