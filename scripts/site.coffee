@@ -12,6 +12,10 @@ time_zones =
     '-0300': [ no,    'ADT'   ]
     '-0230': [ no,    'NDT'   ]
 
+# insert an image
+image = (url) ->
+  alert url
+
 # set my preferred am/pm format
 moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
 
