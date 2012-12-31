@@ -10,6 +10,10 @@ loadJSON = (url, callback) ->
     error: () -> console.dir arguments
     success: (data) -> callback data
 
+# find a post by slug
+find = (slug) ->
+  _.find posts, (post) -> post.slug is slug
+
 # show a page
 show = (slug) ->
   slug ?= posts[0].slug
@@ -56,6 +60,10 @@ $ ->
       # show the about page
       @get '/about', (request) -> show 'about'
 
-      # show posts
-      @get '/:post', (request) -> show request.params.post
+      # show selected post
+      @get '/:post', (request) ->
+        post = find request.params.post
+        show request.params.post
+
+    # start the router
     router.start()
