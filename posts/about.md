@@ -4,7 +4,7 @@ I'm an [IT professional][communityits], web developer, and [laboratory informati
 
 I have studied at [Worcester Polytechnic Institute][wpi], [Rochester Institute of Technology][rit], and the [National Technical Institute for the Deaf][ntid], and finally graduated with a bachelor's degree from [LeTourneau University][letu].
 
-<script type="text/javascript">
+<div id="about-image-01"></div><script type="text/javascript">
   image("about-image-01", "https://lh5.googleusercontent.com/-HIElyoRcIN8/T5eDCdCjtnI/AAAAAAAACvo/TVpSrgdD2Jc/w1024-h400-n/IMG_20120423_170645.jpg", 1024, 400);
 </script>
 
