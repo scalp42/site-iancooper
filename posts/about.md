@@ -1,8 +1,20 @@
 # About Me
 
-I'm an [IT professional][communityits], web developer, and [laboratory informatics consultant][thermo].
+I'm an [IT professional][communityits], web developer, and [laboratory informatics consultant][thermo], based in [beautiful Colorado Springs][cos].
 
 I have studied at [Worcester Polytechnic Institute][wpi], [Rochester Institute of Technology][rit], and the [National Technical Institute for the Deaf][ntid], and finally graduated with a bachelor's degree from [LeTourneau University][letu].
+
+<style>
+  #about-image-01 {
+    width: 100%;
+    height: 100px;
+    background-image: url('https://lh5.googleusercontent.com/-HIElyoRcIN8/T5eDCdCjtnI/AAAAAAAACvo/TVpSrgdD2Jc/w1024-h400-n/IMG_20120423_170645.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+</style>
+<div id="about-image-1"></div>
 
 I've mostly worked in the IT field, for companies like [Microsoft][ms], [Celanese][ce], and [Thermo Fisher Scientific][thermo].  For 2013, I'm [branching out][communityits] to begin providing IT infrastructure configuration and management services to local startups and small businesses.
 
@@ -13,13 +25,14 @@ I've mostly worked in the IT field, for companies like [Microsoft][ms], [Celanes
 This site is hosted by [GitHub Pages][ghp].  It has no server-side code; everything is done on the client side.  I used [CoffeeScript][coffeescript] to write the [client-side code][code] and [Less][less] to generate the stylesheet.  The font, [Source Sans Pro][sourcesans], is served up by [Google Web Fonts][gwf].  All of the posts are composed in [Markdown][md] and transformed into HTML on the client side using the [PageDown][pd] converter.
 
 [communityits]: http://www.communityits.com/
+[thermo]: http://www.thermo.com/informatics/
+[cos]: http://www.visitcos.com/
 [wpi]: http://www.wpi.edu/
 [rit]: http://www.rit.edu/
 [ntid]: http://www.ntid.edu/
 [letu]: http://www.letu.edu/
 [ms]: http://www.microsoft.com/
 [ce]: http://www.celanese.com/
-[thermo]: http://www.thermo.com/informatics/
 [ghp]: http://pages.github.com/
 [coffeescript]: http://coffeescript.org/
 [code]: https://github.com/icooper/site-iancooper/blob/gh-pages/scripts/site.coffee
