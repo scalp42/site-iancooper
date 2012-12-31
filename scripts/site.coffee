@@ -1,6 +1,7 @@
 posts = []
 max_posts = 2
 
+# load JSON data
 load = (url, callback) ->
   $.ajax
     url: url
@@ -8,7 +9,9 @@ load = (url, callback) ->
     error: () -> console.dir arguments
     success: (data) -> callback data
 
-
+# show a page
+show = (slug) ->
+  alert slug
 
 # set up the router
 router = Davis () ->
