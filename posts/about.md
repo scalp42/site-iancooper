@@ -2,15 +2,17 @@
 
 I'm an [IT professional][communityits], web developer, and [laboratory informatics consultant][thermo], based in [beautiful Colorado Springs][cos].
 
-![stretch Looking down on Colorado Springs][cosimg]
+![Looking down on Colorado Springs][cosimg]
 
 I have studied at [Worcester Polytechnic Institute][wpi], [Rochester Institute of Technology][rit], and the [National Technical Institute for the Deaf][ntid], and finally graduated with a bachelor's degree from [LeTourneau University][letu].
 
-![stretch Pikes Peak on Christmas Day 2012][ppxmas]
+![Near Bonanza, Colorado in September 2012][me]
+
+<div style="float:right">[![See me on LinkedIn][linkedinlogo]][linkedinprofile]</div>
 
 I've mostly worked in the IT field, for companies like [Microsoft][ms], [Celanese][ce], and [Thermo Fisher Scientific][thermo].  For 2013, I'm [branching out][communityits] to begin providing IT infrastructure configuration and management services to local startups and small businesses.
 
-[![See me on LinkedIn][linkedinlogo]][linkedinprofile]</div>
+![Pikes Peak on Christmas Day 2012][ppxmas]
 
 # About This Site
 
@@ -34,6 +36,7 @@ This site is hosted by [GitHub Pages][ghp].  It has no server-side code; everyth
 [md]: http://daringfireball.net/projects/markdown/
 [pd]: http://code.google.com/p/pagedown/wiki/PageDown
 
+[me]: https://lh3.googleusercontent.com/-XkXKJex1-Qs/UF_is7HVFzI/AAAAAAAAFJQ/ptT0iO608yw/w1024-h400-n-k/P9223118.JPG#stretch-me
 [cosimg]: https://lh5.googleusercontent.com/-HIElyoRcIN8/T5eDCdCjtnI/AAAAAAAACvo/TVpSrgdD2Jc/w1024-h400-n/IMG_20120423_170645.jpg#stretch-me
 [ppxmas]: https://lh5.googleusercontent.com/-8CkbX5Dhxdg/UNpaJ6pzHeI/AAAAAAAAGZg/LWcvEGfSOUg/w1024-h400-n-k/pano_04-001.jpg#stretch-me
 
