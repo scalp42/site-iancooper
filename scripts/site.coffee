@@ -108,7 +108,11 @@ $ ->
     # display the last few posts in a list
     max_recent = $('#posts').attr 'data-max-recent'
     max = if posts.length > max_recent then max_recent else posts.length
-    $('#posts').append "<li><a href=\"#{posts[i].slug}\">#{posts[i].title} <span class=\"date\">#{posts[i].date}</span></a></li>" for i in [0...max]
+    for i in [0...max]
+      if posts[i].status is 'published'
+        $('#posts').append "<li><a href=\"#{posts[i].slug}\">#{posts[i].title} <span class=\"date\">#{posts[i].date}</span></a></li>"
+      else
+        i--
 
     # set up the routing
     routing
