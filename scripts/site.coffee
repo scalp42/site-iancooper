@@ -22,6 +22,8 @@ router = Davis () ->
   @get '/latest', (request) -> show null
   @get '/about', (request) -> show 'about'
   @get '/:post', (request) -> show request.params.post
+
+# wait until the DOM is parsed and ready
 $ ->
 
   # load posts index
