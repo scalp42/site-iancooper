@@ -45,7 +45,7 @@ show = (post) ->
   else
     console.dir "using cached html for #{post.slug}"
     $('#post').empty()
-    date = post.moment.format 'MMMM dd, YYYY'
+    date = post.moment.format 'MMMM D, YYYY'
     time = post.moment.format 'h:mm a'
     tz = time_zones[post.moment.format 'ZZ'][if post.moment.isDST() then 1 else 0]
     tz = post.moment.format 'ZZ' unless tz
@@ -75,7 +75,7 @@ $ ->
     # format post dates
     for post in data.posts
       post.moment = moment post.date, 'YYYY-MM-DDTHH:mmZZ'
-      post.date = post.moment.format 'dd MMM YYYY'
+      post.date = post.moment.format 'D MMM YYYY'
       post.dateValue = post.moment.valueOf()
       post.html = null
       posts.push post
