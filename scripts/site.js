@@ -26,11 +26,12 @@ find = function(slug) {
   });
 };
 
-show = function(slug) {
-  if (slug == null) {
-    slug = posts[0].slug;
-  }
-  return console.log("slug = " + slug);
+show = function(post) {
+  var article, date, time;
+  date = post.moment.format('MMMM d, YYYY');
+  time = post.moment.format('HH:mm A ZZ');
+  article = $(document.createElement('article'));
+  return article.append("<header><h1>" + post.title + "</h1><h2>" + post.datetime + "</h2></header>");
 };
 
 routing = function(map) {
@@ -61,7 +62,7 @@ $(function() {
     _ref = data.posts;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       post = _ref[_i];
-      post.moment = moment(post.date, 'YYYY-MM-DDTHH:mmZ');
+      post.moment = moment(post.date, 'YYYY-MM-DDTHH:mmZZ');
       post.date = post.moment.format('d MMM YYYY');
       post.dateValue = post.moment.valueOf();
       post.data = null;

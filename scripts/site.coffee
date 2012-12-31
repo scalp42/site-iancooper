@@ -14,10 +14,12 @@ loadJSON = (url, callback) ->
 find = (slug) ->
   _.find posts, (post) -> post.slug is slug
 
-# show a page
-show = (slug) ->
-  slug ?= posts[0].slug
-  console.log "slug = #{slug}"
+# show a post
+show = (post) ->
+  date = post.moment.format 'MMMM d, YYYY'
+  time = post.moment.format 'HH:mm A ZZ'
+  article = $ document.createElement 'article'
+  article.append "<header><h1>#{post.title}</h1><h2>#{post.datetime}</h2></header>"
 
 # set up the routes
 routing = (map) ->
@@ -38,7 +40,7 @@ $ ->
 
     # format post dates
     for post in data.posts
-      post.moment = moment post.date, 'YYYY-MM-DDTHH:mmZ'
+      post.moment = moment post.date, 'YYYY-MM-DDTHH:mmZZ'
       post.date = post.moment.format 'd MMM YYYY'
       post.dateValue = post.moment.valueOf()
       post.data = null
