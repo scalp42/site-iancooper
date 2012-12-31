@@ -23,7 +23,7 @@ loadJSON = function(url, callback) {
 loadMarkdown = function(url, callback) {
   return $.ajax({
     url: url,
-    dataType: text,
+    dataType: 'text',
     error: function() {
       return console.dir(arguments);
     },

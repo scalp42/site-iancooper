@@ -14,7 +14,7 @@ loadJSON = (url, callback) ->
 loadMarkdown = (url, callback) ->
   $.ajax
     url: url
-    dataType: text
+    dataType: 'text'
     error: () -> console.dir arguments
     success: (data) ->
       console.log "success"
