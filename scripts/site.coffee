@@ -11,7 +11,8 @@ load = (url, callback) ->
 
 # show a page
 show = (slug) ->
-  alert slug
+  slug ?= posts[0].slug
+  console.log "slug = #{slug}"
 
 # set up the router
 router = Davis () ->
