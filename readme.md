@@ -1,3 +1,3 @@
 # Ian's Web Site
 
-This repository contains the sources for [iancooper.name](http://iancooper.name).  It's based off of the [gh-pages-template](https://github.com/maxogden/gh-pages-template) repo by [Max Ogden](http://maxogden.com).
+This repository contains the sources for [iancooper.name](http://iancooper.name).  The logic is contained in `[site.coffee]()`.  The page index is `[index.json]()` and the raw Markdown for the individual pages is contained in the `[posts]()` directory.
