@@ -19,6 +19,16 @@ show = (slug) ->
   slug ?= posts[0].slug
   console.log "slug = #{slug}"
 
+# set up the routes
+routing = (map) ->
+  router = new Davis () ->
+    @configure (config) ->
+      config.generateRequestOnPageLoad = yes
+      config.handleRouteNotFound = yes
+    @bind 'routeNotFound', (request) -> request.redirect '/'
+    for route in map.routes
+      @get route.pattern, map.fn[route.fn]
+
 # wait until the DOM is parsed and ready
 $ ->
 
@@ -41,35 +51,25 @@ $ ->
     max = if posts.length > config.max_posts then config.max_posts else posts.length
     $('#posts').append "<li><a href=\"#{posts[i].slug}\">#{posts[i].title}</a> <span class=\"date\">#{posts[i].date}</span></li>" for i in [0...max]
 
-    # redirect to the latest post
-    latest = (request) ->
-      request.redirect "/#{posts[0].slug}"
+    # set up the routing
+    routing
+      fn:
+        # show the latest post
+        latest: (request) -> request.redirect "/#{posts[0].slug}"
 
-    # show the selected post
-    selected = (request) ->
-      post = find request.params.post
-      if post?
-        show post
-      else
-        latest request
+        # show the selected post
+        selected: (request) ->
+          post = find request.params.post
+          if post?
+            show post
+          else
+            request.redirect "/latest"
 
-    # set up the request router
-    router = Davis () ->
-
-      # set router options
-      @configure (config) ->
-        config.generateRequestOnPageLoad = yes
-        config.handleRouteNotFound = yes
-
-      # go to the latest page
-      @bind 'routeNotFound', latest
-      @get '/', latest
-      @get '/latest', latest
-      @get 'latest', latest
-
-      # show selected post
-      @get '/:post', selected
-      @get ':post', selected
-
-    # start the router
-    router.start()
+      # pattern-route map
+      routes: [
+        { pattern: '/', fn: 'latest' }
+        { pattern: '/latest', fn: 'latest' }
+        { pattern: 'latest', fn: 'latest' }
+        { pattern: '/:post', fn: 'selected' }
+        { pattern: ':post', fn: 'selected' }
+      ]
