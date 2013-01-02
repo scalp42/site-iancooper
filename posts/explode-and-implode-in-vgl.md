@@ -8,21 +8,4 @@ VGL lacks native string-to-array and array-to-string routines, often seen as `ex
 
 Suppose we have a string containing `"victor|golf|lima"`.  The expression `explode("victor|golf|lima", "|")` would evaluate to a one-dimensional VGL array containing the strings `"victor"`, `"golf"`, and `"lima"`.  Here's the code for `explode()`:
 
-    ROUTINE explode(VALUE delimited_string, VALUE delimeter)
-        DECLARE temp, dlen, arr, i, pos
-        temp = delimited_string
-        dlen = LENGTH(delimter)
-        ARRAY arr
-        i = 1
-        
-        pos = INDEX(temp, delimeter)
-        WHILE (pos <> 0) DO
-            arr[i] = LEFTSTRING(temp, pos - 1)
-            temp = RIGHTSTRING(temp, LENGTH(temp) - pos - dlen + 1)
-            i = i + 1
-            pos = INDEX(temp, delimeter)
-        ENDWHILE
-        arr[i] = temp
-        
-        RETURN arr
-    ENDROUTINE
+<script src="https://gist.github.com/4431755.js"></script>
