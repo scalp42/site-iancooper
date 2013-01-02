@@ -46,12 +46,13 @@ convertimg = function(img) {
 };
 
 convertgist = function(gist) {
-  var id;
+  var file, id;
   gist = $(gist);
+  file = gist.attr('alt');
   id = gist.attr('src').match(/^gist\:([0-9a-z]+)$/i);
   if (id != null) {
     return load("https://api.github.com/gists/" + id[1], 'jsonp', function(data) {
-      return console.dir(data);
+      return console.log(data.data.files[file].content);
     });
   }
 };

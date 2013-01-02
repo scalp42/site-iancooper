@@ -38,10 +38,11 @@ convertimg = (img) ->
 # include gists
 convertgist = (gist) ->
   gist = $ gist
+  file = gist.attr 'alt'
   id = gist.attr('src').match /^gist\:([0-9a-z]+)$/i
   if id?
     load "https://api.github.com/gists/#{id[1]}", 'jsonp', (data) ->
-      console.dir data
+      console.log data.data.files[file].content
 
 # convert markdown to html
 markup = (markdown) ->
