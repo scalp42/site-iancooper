@@ -52,7 +52,7 @@ convertgist = (gist) ->
 sanitize = (data) ->
   data.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace />/g, '&gt;'
 
-# rudimentary syntax highlighting for VGL
+# stupid keyword highlighting for VGL
 vglize = (code) ->
   " #{code} ".replace(/(\W)([A-Z]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3').replace /^ (.*) $/, '$1'
 
