@@ -53,6 +53,7 @@ convertgist = function(gist) {
   if (id != null) {
     return load("https://api.github.com/gists/" + id[1], 'jsonp', function(data) {
       var content, pre;
+      console.dir(data);
       pre = $(document.createElement('pre'));
       content = sanitize(data.data.files[file].content);
       if (/\.rpf$/.test(file)) {
