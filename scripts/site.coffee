@@ -111,8 +111,11 @@ $ ->
     # display the last few posts in a list
     max_recent = $('#posts').attr 'data-max-recent'
     max = if posts.length > max_recent then max_recent else posts.length
+    now = moment()
     for i in [0...max]
-      if posts[i].status is 'published'
+
+      # only show published posts from the past, no future or non-published posts
+      if posts[i].status is 'published' and now > posts[i].moment
         $('#posts').append "<li><a href=\"#{posts[i].slug}\">#{posts[i].title} <span class=\"date\">#{posts[i].date}</span></a></li>"
       else
         i--
