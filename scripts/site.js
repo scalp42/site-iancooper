@@ -53,7 +53,7 @@ convertgist = function(gist) {
   if (id != null) {
     return load("https://api.github.com/gists/" + id[1], 'jsonp', function(data) {
       var content, pre;
-      pre = $(document.createElement('pre'));
+      pre = $(document.createElement('p')).css('white-space', 'pre');
       content = data.data.files[file].content;
       if (/\.rpf$/.test(file)) {
         content = vglize(content);
@@ -65,7 +65,7 @@ convertgist = function(gist) {
 };
 
 vglize = function(code) {
-  return code.replace(/(\W)([A-Z+])(\W)/g, '$1<span class="vgl-keyword">$2</span>$3');
+  return code.replace(/(\W)([A-Z]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3');
 };
 
 markup = function(markdown) {

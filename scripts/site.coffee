@@ -42,7 +42,7 @@ convertgist = (gist) ->
   id = gist.attr('src').match /^gist\:([0-9a-z]+)$/i
   if id?
     load "https://api.github.com/gists/#{id[1]}", 'jsonp', (data) ->
-      pre = $ document.createElement 'pre'
+      pre = $(document.createElement 'p').css 'white-space', 'pre'
       content = data.data.files[file].content
       content = vglize content if /\.rpf$/.test file
       pre.text content
@@ -50,7 +50,7 @@ convertgist = (gist) ->
 
 # rudimentary syntax highlighting for VGL
 vglize = (code) ->
-  code.replace /(\W)([A-Z+])(\W)/g, '$1<span class="vgl-keyword">$2</span>$3'
+  code.replace /(\W)([A-Z]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3'
 
 # convert markdown to html
 markup = (markdown) ->
