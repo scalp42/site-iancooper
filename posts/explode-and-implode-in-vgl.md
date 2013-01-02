@@ -14,4 +14,4 @@
   Suppose we have a string containing <code>"victor|golf|lima"</code>.  The expression <code>explode("victor|golf|lima", "|")</code> would evaluate to a one-dimensional VGL array containing the strings <code>"victor"</code>, <code>"golf"</code>, and <code>"lima"</code>.  Here's the code for <code>explode()</code>:
 </p>
 
-<script src="https://gist.github.com/4431755.js"></script>
+![explode.rpf](gist:4431755.js)
