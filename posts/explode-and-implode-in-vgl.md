@@ -6,4 +6,7 @@ VGL lacks native string-to-array and array-to-string routines, often seen as `ex
 
 ## Explode
 
-Suppose we have a string containing `"victor|golf|lima"`.  The expression `explode("victor|golf|lima", "|")` would evaluate to a one-dimensional VGL array containing the strings `"victor"`, `"golf"`, and `"lima"`.
+Suppose we have a string containing `"victor|golf|lima"`.  The expression `explode("victor|golf|lima", "|")` would evaluate to a one-dimensional VGL array containing the strings `"victor"`, `"golf"`, and `"lima"`.  Here's the code for `explode()`:
+
+    ROUTINE explode(VALUE string, VALUE delimeter)
+    ENDROUTINE
