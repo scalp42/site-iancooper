@@ -115,7 +115,7 @@ $ ->
     for i in [0...max]
 
       # only show published posts from the past, no future or non-published posts
-      if posts[i].status is 'published' and now > posts[i].moment
+      if posts[i].status is 'published' and now >= posts[i].moment
         $('#posts').append "<li><a href=\"#{posts[i].slug}\">#{posts[i].title} <span class=\"date\">#{posts[i].date}</span></a></li>"
       else
         i--
@@ -125,8 +125,9 @@ $ ->
       fn:
         # show the latest post
         latest: (request) ->
+          now = moment()
           for i in [0..posts.length]
-            if posts[i].status is 'published'
+            if posts[i].status is 'published' and now >= posts[i].moment
               request.redirect "/#{posts[i].slug}"
               break
 
