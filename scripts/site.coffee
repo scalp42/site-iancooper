@@ -42,12 +42,14 @@ convertgist = (gist) ->
   id = gist.attr('src').match /^gist\:([0-9a-z]+)$/i
   if id?
     load "https://api.github.com/gists/#{id[1]}", 'jsonp', (data) ->
-      console.dir data
-      pre = $(document.createElement 'pre')
-      content = sanitize data.data.files[file].content
-      content = vglize content if /\.rpf$/.test file
-      pre.html content
-      gist.parent().replaceWith pre
+      if data.data.files?
+        pre = $(document.createElement 'pre')
+        content = sanitize data.data.files[file].content
+        content = vglize content if /\.rpf$/.test file
+        pre.html content
+        gist.parent().replaceWith pre
+      else
+        gist.replaceWith "<a href=\"https://gist.github.com/#{id[1]}#file-#{file.replace /\./g, '-'}\"><code>#{file}</code></a>"
 
 # escape tags and ampersands
 sanitize = (data) ->
