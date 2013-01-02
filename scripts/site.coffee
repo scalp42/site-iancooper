@@ -35,17 +35,27 @@ convertimg = (img) ->
     $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
     $(window).trigger 'resize'
 
+# include gists
+convertgist = (gist) ->
+  gist = $ gist
+  url = gist.attr 'src'
+  parts = url.match /^gist\:([0-9a-z]+)$/i
+  if parts?
+    id = parts[1]
+    url = "https://api.github.com/gists/#{id}"
+    load url, 'jsonp', (data) ->
+      console.dir data
+
 # convert markdown to html
 markup = (markdown) ->
   window.Converter ?= new Markdown.Converter()
   window.Converter.makeHtml markdown
 
 # load data
-load = (url, json, callback) ->
-  json ?= no
+load = (url, type, callback) ->
   $.ajax
     url: url
-    dataType: if json then 'json' else 'text'
+    dataType: type
     error: () -> console.dir arguments
     success: (data) -> callback data
 
@@ -57,7 +67,7 @@ find = (slug) ->
 show = (post) ->
   unless post.html
     console.dir "loading posts/#{post.file}"
-    load "posts/#{post.file}", no, (data) ->
+    load "posts/#{post.file}", 'text', (data) ->
       index = _.indexOf posts, post
 
       # check extension to determine file format
@@ -86,6 +96,7 @@ show = (post) ->
 
     # process special tags
     $('img[src$="#stretch-me"]', container).each () -> convertimg @
+    $('img[src^="gist:"]', container).each () -> convertgist @
 
 # set up the routes
 routing = (map) ->
@@ -109,7 +120,7 @@ $ ->
     self.location.href = 'http://iancooper.name/'
 
   # load posts index
-  load 'posts/index.json', yes, (data) ->
+  load 'posts/index.json', 'json', (data) ->
     posts = []
 
     # format post dates
