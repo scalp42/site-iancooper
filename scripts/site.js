@@ -55,7 +55,7 @@ convertgist = function(gist) {
       var pre;
       pre = $(document.createElement('pre'));
       pre.text(data.data.files[file].content);
-      return img.replaceWith(pre);
+      return gist.replaceWith(pre);
     });
   }
 };
