@@ -1,3 +1,3 @@
 site.js: site.coffee
-	coffee -cbp site.coffee > temp.js
-	uglifyjs temp.js -c -m > site.js
+	coffee -cbp site.coffee > site.js
+	uglifyjs site.js -c -m > site.min.js
