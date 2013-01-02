@@ -13,6 +13,13 @@
       "slug": "community-it-services",
       "file": "community-it-services.md",
       "status": "published"
+    },
+    {
+      "date": "2013-01-01T19:49-0700",
+      "title": "Explode and Implode in VGL",
+      "slug": "explode-and-implode-in-vgl",
+      "file": "explode-and-implode-in-vgl.md",
+      "status": "draft"
     }
   ]
 }
