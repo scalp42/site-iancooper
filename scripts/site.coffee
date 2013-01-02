@@ -42,6 +42,7 @@ convertgist = (gist) ->
   id = gist.attr('src').match /^gist\:([0-9a-z]+)$/i
   if id?
     load "https://api.github.com/gists/#{id[1]}", 'jsonp', (data) ->
+      console.dir data
       pre = $(document.createElement 'pre')
       content = sanitize data.data.files[file].content
       content = vglize content if /\.rpf$/.test file
