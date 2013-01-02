@@ -12,6 +12,8 @@ I have studied at [Worcester Polytechnic Institute][wpi], [Rochester Institute o
 
 I've mostly [worked][linkedinprofile] in the IT field, for companies like [Microsoft][ms], [Celanese][ce], and [Thermo Fisher Scientific][thermo].  For 2013, I'm [branching out][communityits] to begin providing IT infrastructure configuration and management services to local startups and small businesses.
 
+[Curious about how this site is built?](/about-this-site)
+
 [communityits]: http://www.communityits.com/
 [thermo]: http://www.thermo.com/informatics/
 [cos]: http://www.visitcos.com/
