@@ -61,7 +61,7 @@ replaceall = (text, replacements) ->
 # stupid keyword highlighting for VGL
 vglize = (code) ->
   replaceall " #{code} ", [
-    [ /(\W)([A-Z]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3' ]
+    [ /(\W)([A-Z_]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3' ]
     [ /^\s/, '' ]
     [ /\s$/, '' ]
   ]

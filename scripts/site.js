@@ -78,7 +78,7 @@ replaceall = function(text, replacements) {
 };
 
 vglize = function(code) {
-  return replaceall(" " + code + " ", [[/(\W)([A-Z]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3'], [/^\s/, ''], [/\s$/, '']]);
+  return replaceall(" " + code + " ", [[/(\W)([A-Z_]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3'], [/^\s/, ''], [/\s$/, '']]);
 };
 
 markup = function(markdown) {
