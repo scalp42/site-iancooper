@@ -52,9 +52,19 @@ convertgist = (gist) ->
 sanitize = (data) ->
   data.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace />/g, '&gt;'
 
+# multiple regex replacements
+replaceall = (text, replacements) ->
+  for r in replacements
+    text = text.replace r[0], r[1]
+  text
+
 # stupid keyword highlighting for VGL
 vglize = (code) ->
-  " #{code} ".replace(/(\W)([A-Z]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3').replace /^ (.*) $/, '$1'
+  replaceall " #{code} ", [
+    [ /(\W)([A-Z]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3' ]
+    [ /^\s/, '' ]
+    [ /\s$/, '' ]
+  ]
 
 # convert markdown to html
 markup = (markdown) ->
