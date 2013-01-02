@@ -42,7 +42,9 @@ convertgist = (gist) ->
   id = gist.attr('src').match /^gist\:([0-9a-z]+)$/i
   if id?
     load "https://api.github.com/gists/#{id[1]}", 'jsonp', (data) ->
-      console.log data.data.files[file].content
+      pre = $ document.createElement 'pre'
+      pre.text data.data.files[file].content
+      img.replaceWith pre
 
 # convert markdown to html
 markup = (markdown) ->
