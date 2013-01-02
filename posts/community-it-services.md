@@ -6,4 +6,4 @@ I didn't want a flashy, extravagant web site.  Rather, I wanted to put together 
 
 [![screenshot](https://lh5.googleusercontent.com/-kjJ_rPnewgc/UOIOcrWzEfI/AAAAAAAAGcc/18Ep2LxNH4E/w819-h790-n-k/0e392405f0456fd21d2383cd24160f62f198726d3c.png#stretch-me)](http://www.communityits.com/)
 
-I'd like your feedback.  Am I going about this the right way?  [Email me your thoughts.](#email).
+I'd like your feedback.  Am I going about this the right way?  [Email me your thoughts.](#email)
