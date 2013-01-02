@@ -22,4 +22,4 @@ Note that we have to join the `STD_ARRAY` library to get the `size_of_array()` r
 
 Even though VGL is missing a lot of the usual array and string manipulation routines, we can implement most of them without too much trouble.
 
-_The above code snippets are available [in this gist][https://gist.github.com/4331755].  Feel free to use them as you'd like!  Please keep in mind, though, that code samples are provided as-is and with no guarantees by myself or my employer.
+_The above code snippets are available [in this gist](https://gist.github.com/4431755).  Feel free to use them as you'd like!  Please keep in mind, though, that code samples are provided as-is and with no guarantees by myself or my employer._
