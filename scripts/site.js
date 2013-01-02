@@ -63,7 +63,7 @@ convertgist = function(gist) {
         return gist.parent().replaceWith(pre);
       } else {
         gist.parent().css('margin-left', '2rem');
-        return gist.replaceWith("<code>&raquo;</code> <a href=\"https://gist.github.com/" + id[1] + "#file-" + (file.replace(/\./g, '-')) + "\"><code>" + file + "</code></a>");
+        return gist.replaceWith("<code>&raquo;&nbsp;&nbsp;</code><a href=\"https://gist.github.com/" + id[1] + "#file-" + (file.replace(/\./g, '-')) + "\"><code>" + file + "</code></a>");
       }
     });
   }
