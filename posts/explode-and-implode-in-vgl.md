@@ -15,3 +15,11 @@ Suppose we have a string containing `"victor|golf|lima"`.  The expression `explo
 To reverse the process, suppose we have an array containing three strings: `"victor"`, `"golf"`, and `"lima"`.  To join these together in a pipe-delimited string (e.g. `"victor|golf|lima"`), we'd execute `implode(array, "|")`, where `array` is the above array (there's no inline array syntax in VGL).  Here's the code for `implode()`:
 
 ![implode.rpf](gist:4431755)
+
+Note that we have to join the `STD_ARRAY` library to get the `size_of_array()` routine.  There are a few other routines in `STD_ARRAY` but it's woefully incomplete when compared to mainstream programming languages.
+
+## Summary
+
+Even though VGL is missing a lot of the usual array and string manipulation routines, we can implement most of them without too much trouble.
+
+_The above code snippets are available [in this gist][https://gist.github.com/4331755].  Feel free to use them as you'd like!  Please keep in mind, though, that code samples are provided as-is and with no guarantees by myself or my employer.
