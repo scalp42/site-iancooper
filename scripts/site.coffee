@@ -38,12 +38,9 @@ convertimg = (img) ->
 # include gists
 convertgist = (gist) ->
   gist = $ gist
-  url = gist.attr 'src'
-  parts = url.match /^gist\:([0-9a-z]+)$/i
-  if parts?
-    id = parts[1]
-    url = "https://api.github.com/gists/#{id}"
-    load url, 'jsonp', (data) ->
+  id = gist.attr('src').match /^gist\:([0-9a-z]+)$/i
+  if id?
+    load "https://api.github.com/gists/#{id[1]}", 'jsonp', (data) ->
       console.dir data
 
 # convert markdown to html
