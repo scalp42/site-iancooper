@@ -49,7 +49,7 @@ convertgist = (gist) ->
         pre.html content
         gist.parent().replaceWith pre
       else
-        gist.parent().css 'margin-right', '2rem'
+        gist.parent().css 'margin-left', '2rem'
         gist.replaceWith "<a href=\"https://gist.github.com/#{id[1]}#file-#{file.replace /\./g, '-'}\"><code>#{file}</code></a>"
 
 # escape tags and ampersands
