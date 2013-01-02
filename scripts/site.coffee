@@ -136,22 +136,6 @@ addemails = (context) ->
   context ?= $ 'body'
   $('a[href="#email"]').attr 'href', 'mailto:me+website@iancooper.name'
 
-# load fonts
-WebFontConfig =
-  google:
-    families: [
-      'Source+Code+Pro::latin',
-      'Source+Sans+Pro:300,400,600,900,400italic:latin'
-    ]
-(()->
-  wf = document.createElement 'script'
-  wf.src = 'http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'
-  wf.type = 'text/javascript'
-  wf.async = 'true'
-  s = document.getElementsByTagName('script')[0]
-  s.parentNode.insertBefore wf, s
-)()
-
 # wait until the DOM is parsed and ready
 $ ->
 
