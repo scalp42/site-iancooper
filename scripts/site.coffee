@@ -35,6 +35,16 @@ convertimg = (img) ->
     $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
     $(window).trigger 'resize'
 
+# add gists
+convertgist = (gist) ->
+  gist = $ gist
+  gist_id = gist.text()
+  js = "https://gist.github.com/#{gist_id}.js"
+  load js, no, (data) ->
+    eval data
+    gist.replaceWith $ "#gist#{gist_id}"
+
+
 # convert markdown to html
 markup = (markdown) ->
   window.Converter ?= new Markdown.Converter()
@@ -75,7 +85,10 @@ show = (post) ->
     article.append "<section>#{post.html}</section>"
     $('section > h1', article).first().remove()
     container.append article
+
+    # process special tags
     $('img[src$="#stretch-me"]', container).each () -> convertimg @
+    $('span.gist', container).each () -> convertgist @
 
 # set up the routes
 routing = (map) ->
