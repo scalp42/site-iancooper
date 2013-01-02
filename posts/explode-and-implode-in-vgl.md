@@ -8,4 +8,4 @@ VGL lacks native string-to-array and array-to-string routines, often seen as `ex
 
 Suppose we have a string containing `"victor|golf|lima"`.  The expression `explode("victor|golf|lima", "|")` would evaluate to a one-dimensional VGL array containing the strings `"victor"`, `"golf"`, and `"lima"`.  Here's the code for `explode()`:
 
-<script src="https://gist.github.com/4431755.js"></script>
+<script type="text/javascript" src="https://gist.github.com/4431755.js"></script>
