@@ -69,7 +69,7 @@ sanitize = function(data) {
 };
 
 vglize = function(code) {
-  return code.replace(/(\W)([A-Z]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3');
+  return (" " + code + " ").replace(/(\W)([A-Z]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3').replace(/^ (.*) $/, '$1');
 };
 
 markup = function(markdown) {

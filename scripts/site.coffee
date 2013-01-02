@@ -54,7 +54,7 @@ sanitize = (data) ->
 
 # rudimentary syntax highlighting for VGL
 vglize = (code) ->
-  code.replace /(\W)([A-Z]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3'
+  " #{code} ".replace(/(\W)([A-Z]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3').replace /^ (.*) $/, '$1'
 
 # convert markdown to html
 markup = (markdown) ->
