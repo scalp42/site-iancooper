@@ -93,6 +93,11 @@ $ ->
   # add 'contact me' link
   $('#pages').append '<li><a href="mailto:me+website@iancooper.name">Contact</a></li>'
 
+  # make the site title clickable
+  $('nav > header > h1').css('cursor', 'pointer').click (event) ->
+    event.preventDefault()
+    self.location.href = 'http://iancooper.name/'
+
   # load posts index
   load 'posts/index.json', yes, (data) ->
     posts = []
