@@ -35,16 +35,6 @@ convertimg = (img) ->
     $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
     $(window).trigger 'resize'
 
-# add gists
-convertgist = (gist) ->
-  gist = $ gist
-  gist_id = gist.text()
-  js = "https://gist.github.com/#{gist_id}.js"
-  load js, no, (data) ->
-    eval data
-    gist.replaceWith $ "#gist#{gist_id}"
-
-
 # convert markdown to html
 markup = (markdown) ->
   window.Converter ?= new Markdown.Converter()
@@ -67,9 +57,17 @@ find = (slug) ->
 show = (post) ->
   unless post.html
     console.dir "loading posts/#{post.file}"
-    load "posts/#{post.file}", no, (markdown) ->
+    load "posts/#{post.file}", no, (data) ->
       index = _.indexOf posts, post
-      posts[index].html = markup markdown
+
+      # check extension to determine file format
+      if /\.md$/.test post.file
+        # convert from markdown
+        posts[index].html = markup data
+      else
+        # assume post is already html
+        posts[index].html = data
+
       console.dir "markdown -> html saved in cache"
       show posts[index]
   else
@@ -88,7 +86,6 @@ show = (post) ->
 
     # process special tags
     $('img[src$="#stretch-me"]', container).each () -> convertimg @
-    $('span.gist', container).each () -> convertgist @
 
 # set up the routes
 routing = (map) ->
