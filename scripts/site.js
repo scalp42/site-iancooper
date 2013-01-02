@@ -53,14 +53,17 @@ convertgist = function(gist) {
   if (id != null) {
     return load("https://api.github.com/gists/" + id[1], 'jsonp', function(data) {
       var content, pre;
-      console.dir(data);
-      pre = $(document.createElement('pre'));
-      content = sanitize(data.data.files[file].content);
-      if (/\.rpf$/.test(file)) {
-        content = vglize(content);
+      if (data.data.files != null) {
+        pre = $(document.createElement('pre'));
+        content = sanitize(data.data.files[file].content);
+        if (/\.rpf$/.test(file)) {
+          content = vglize(content);
+        }
+        pre.html(content);
+        return gist.parent().replaceWith(pre);
+      } else {
+        return gist.replaceWith("<a href=\"https://gist.github.com/" + id[1] + "#file-" + (file.replace(/\./g, '-')) + "\"><code>" + file + "</code></a>");
       }
-      pre.html(content);
-      return gist.parent().replaceWith(pre);
     });
   }
 };
