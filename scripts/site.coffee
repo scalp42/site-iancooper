@@ -42,11 +42,15 @@ convertgist = (gist) ->
   id = gist.attr('src').match /^gist\:([0-9a-z]+)$/i
   if id?
     load "https://api.github.com/gists/#{id[1]}", 'jsonp', (data) ->
-      pre = $(document.createElement 'p').css 'white-space', 'pre'
-      content = data.data.files[file].content
+      pre = $(document.createElement 'pre')
+      content = sanitize data.data.files[file].content
       content = vglize content if /\.rpf$/.test file
-      pre.text content
+      pre.html content
       gist.parent().replaceWith pre
+
+# escape tags and ampersands
+sanitize = (data) ->
+  data.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace />/g, '&gt;'
 
 # rudimentary syntax highlighting for VGL
 vglize = (code) ->
