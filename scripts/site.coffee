@@ -44,7 +44,7 @@ convertgist = (gist) ->
     load "https://api.github.com/gists/#{id[1]}", 'jsonp', (data) ->
       pre = $ document.createElement 'pre'
       pre.text data.data.files[file].content
-      gist.replaceWith pre
+      gist.parent().replaceWith pre
 
 # convert markdown to html
 markup = (markdown) ->
