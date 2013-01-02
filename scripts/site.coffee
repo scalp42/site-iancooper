@@ -118,6 +118,9 @@ show = (post) ->
     $('img[src$="#stretch-me"]', container).each () -> convertimg @
     $('img[src^="gist:"]', container).each () -> convertgist @
 
+    # add email links
+    addemails container
+
 # set up the routes
 routing = (map) ->
   router = new Davis () ->
@@ -128,11 +131,17 @@ routing = (map) ->
     for route in map.routes
       @get route.pattern, map.fn[route.fn]
 
+# add email links
+addemails = (context) ->
+  context ?= $ 'body'
+  $('a[href="#email"]').attr 'href', 'mailto:me+website@iancooper.name'
+
+
 # wait until the DOM is parsed and ready
 $ ->
 
-  # add 'contact me' link
-  $('#pages').append '<li><a href="mailto:me+website@iancooper.name">Contact</a></li>'
+  # add email links
+  addemails()
 
   # make the site title clickable
   $('nav > header > h1').css('cursor', 'pointer').click (event) ->
