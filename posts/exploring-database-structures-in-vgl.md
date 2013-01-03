@@ -14,9 +14,9 @@ The syntax is case-insensitive and whitespace is also insignificant, so we can u
 
 When you're developing VGL code (the scripting language used throughout SampleManager), there are several routines available to get access to the database structure:
 
- * `get_table_names()`
- * `get_field_names()`
- * `GET_TABLE_DETAILS`
- * `GET_FIELD_DETAILS`
+ * [`get_table_names()`](#get_table_names)
+ * [`get_field_names()`](#get_field_names)
+ * [`GET_TABLE_DETAILS`](#get_table_details)
+ * [`GET_FIELD_DETAILS`](#get_field_details)
 
 ## <a id="get_table_names"></a> `get_table_names()`
