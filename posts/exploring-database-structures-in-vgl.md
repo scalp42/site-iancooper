@@ -33,7 +33,7 @@ This would populate `tables_array` with data that looks something like this:
         [ "SAMPLE", _EMPTY_ ],
         [ "TEST",   _EMPTY_ ],
         [ "RESULT", _EMPTY_ ],
-        &vellip;
+        ⋮
     ]
 
 (VGL has a null-like value that is represented by the keyword `EMPTY`.)
