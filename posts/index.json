@@ -27,6 +27,13 @@
       "slug": "explode-and-implode-in-vgl",
       "file": "explode-and-implode-in-vgl.md",
       "status": "published"
+    },
+    {
+      "date": "2013-01-03T16:03-0700",
+      "title": "Exploring Database Structures in VGL",
+      "slug": "exploring-database-structures-in-vgl",
+      "file": "exploring-database-structures-in-vgl.md",
+      "status": "draft"
     }
   ]
 }
