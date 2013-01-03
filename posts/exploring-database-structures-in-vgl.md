@@ -30,9 +30,9 @@ The `STD_STRUCTURE` standard library contains the `get_table_names()` routine.  
 This would populate `tables_array` with data that looks something like this:
 
     tables_array = [
-        [ "SAMPLE", _EMPTY_ ],
-        [ "TEST",   _EMPTY_ ],
-        [ "RESULT", _EMPTY_ ],
+        [ "SAMPLE", EMPTY ],
+        [ "TEST",   EMPTY ],
+        [ "RESULT", EMPTY ],
         ⋮
     ]
 
