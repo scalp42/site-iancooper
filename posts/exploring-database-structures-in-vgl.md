@@ -14,9 +14,32 @@ The syntax is case-insensitive and whitespace is also insignificant, so we can u
 
 When you're developing VGL code (the scripting language used throughout SampleManager), there are several routines available to get access to the database structure:
 
- * [`get_table_names()`](#get_table_names)
- * [`get_field_names()`](#get_field_names)
- * [`GET_TABLE_DETAILS`](#get_table_details)
- * [`GET_FIELD_DETAILS`](#get_field_details)
+ * `get_table_names()`
+ * `get_field_names()`
+ * `GET_TABLE_DETAILS`
+ * `GET_FIELD_DETAILS`
 
-## <a id="get_table_names"></a> `get_table_names()`
+## `get_table_names()`
+
+The `STD_STRUCTURE` standard library contains the `get_table_names()` routine.  It takes one argument, an array variable, which will be populated by the routine with a list of all of the table (and view) names.  The array will be a two-dimensional array, which makes it easy to use with the `browse_on_array()` routine.  For example:
+
+    JOIN STANDARD_LIBRARY STD_STRUCTURE
+    DECLARE tables_array
+    get_table_names(tables_array)
+    
+This would populate `tables_array` with data that looks something like this:
+
+    tables_array = [
+        [ "SAMPLE", _EMPTY_ ],
+        [ "TEST",   _EMPTY_ ],
+        [ "RESULT", _EMPTY_ ],
+        &vellip;
+    ]
+
+(VGL has a null-like value that is represented by the keyword `EMPTY`.)
+
+## `get_field_names()`
+
+## `GET_TABLE_DETAILS`
+
+## `GET_FIELD_DETAILS`
