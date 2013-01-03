@@ -19,4 +19,4 @@ When you're developing VGL code (the scripting language used throughout SampleMa
  * `GET_TABLE_DETAILS`
  * `GET_FIELD_DETAILS`
 
-## `get_table_names()`
+## <a id="get_table_names"></a> `get_table_names()`
