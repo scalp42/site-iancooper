@@ -75,7 +75,7 @@ Continuing with the `person` table described above, `email_data_type` would be p
 
 The details of the table structure can be accessed in VGL through the routines of the `STD_DATABASE` standard library and a few additional commands.  In my next post, we'll see a practical application of these methods.
 
-_The above code snippets are available (in this gist)[https://gist.github.com/4447646]. Feel free to use them as you'd like! Please keep in mind, though, that code samples are provided as-is and with no guarantees by myself or my employer._
+_The above code snippets are available [in this gist](https://gist.github.com/4447646). Feel free to use them as you'd like! Please keep in mind, though, that code samples are provided as-is and with no guarantees by myself or my employer._
 
 
 
