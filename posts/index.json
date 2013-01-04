@@ -41,6 +41,13 @@
       "slug": "attachments-to-samplemanager-entities",
       "file": "attachments-to-samplemanager-entities.md",
       "status": "draft"
+    },
+    {
+      "date": "2013-01-04T19:12-0700",
+      "title": "Google Maps + Fusion Tables",
+      "slug": "google-maps-plus-fusion-tables",
+      "file": "google-maps-plus-fusion-tables.md",
+      "status": "draft"
     }
   ]
 }
