@@ -34,6 +34,13 @@
       "slug": "exploring-database-structures-in-vgl",
       "file": "exploring-database-structures-in-vgl.md",
       "status": "published"
+    },
+    {
+      "date": "2013-01-04T09:42-0700",
+      "title": "Attachments to SampleManager Entities"
+      "slug": "attachments-to-samplemanager-entities",
+      "file": "attachments-to-samplemanager-entities.md",
+      "status": "draft"
     }
   ]
 }
