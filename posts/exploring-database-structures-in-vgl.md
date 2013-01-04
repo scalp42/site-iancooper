@@ -3,19 +3,22 @@
 In [SampleManager](http://www.thermo.com/samplemanager), the database structure is defined in `structure.txt`, unsurprisingly known as _the structure file_.  The structure file uses a pretty straightforward syntax that defines the various tables, views, and indicies in the database that are used by SampleManager.  For a quick example, this snippet could define a table called `person`:
 
     TABLE person;
-        FIELD identity      DATATYPE IDENTITY USED_FOR UNIQUE_KEY;
+        FIELD identity      DATATYPE IDENTITY
+                            USED_FOR UNIQUE_KEY;
         FIELD first_name    DATATYPE TEXT(32);
         FIELD middle_name   DATATYPE TEXT(32);
         FIELD last_name     DATATYPE TEXT(32);
         FIELD email_address DATATYPE TEXT(255);
-        FIELD location      LINKS_TO location.identity;
+        FIELD location_id   ALIAS location
+                            LINKS_TO location.identity;
 
 The syntax is case-insensitive and whitespace is also insignificant, so we can use capitalization, spacing, and indentation to help make it more human-readable.
 
-When you're developing VGL code (the scripting language used throughout SampleManager), there are several routines available to get access to the database structure:
+When you're developing VGL code (the scripting language used throughout SampleManager), there are several routines and commands available to get access to the database structure:
 
  * `get_table_names()`
  * `get_field_names()`
+ * `get_real_field_name()`
  * `GET_TABLE_DETAILS`
  * `GET_FIELD_DETAILS`
 
@@ -27,19 +30,57 @@ The `STD_STRUCTURE` standard library contains the `get_table_names()` routine.  
     DECLARE tables_array
     get_table_names(tables_array)
     
-This would populate `tables_array` with data that looks something like this:
+This would populate `tables_array` with data that looks something like this; the second element of each row will always be `EMPTY`:
 
     tables_array = [
-        [ "SAMPLE", EMPTY ],
-        [ "TEST",   EMPTY ],
-        [ "RESULT", EMPTY ],
+        [ "person", EMPTY ],
+        [ "sample", EMPTY ],
+        [ "test",   EMPTY ],
+        [ "result", EMPTY ],
         ⋮
     ]
 
-(VGL has a null-like value that is represented by the keyword `EMPTY`.)
-
 ## `get_field_names()`
 
-## `GET_TABLE_DETAILS`
+The `get_field_names()` routine, also in `STD_DATABASE`, takes two arguments.  The first is a string value containing the name of the table for which you want the field names.  The second argument, similar to `get_table_names()`, should be an array variable to receive the list of fields.  The array will be a two-dimensional array, but instead of the second element of each row being `EMPTY`, it will be `TRUE` for fields that are aliases and `FALSE` otherwise.
 
-## `GET_FIELD_DETAILS`
+For example:
+
+    JOIN STANDARD_LIBRARY STD_STRUCTURE
+    DECLARE fields_array
+    get_field_names("person", fields_array)
+    
+Using the definition of `person` from above, this would populate `fields_array` with something that looks like this:
+
+    fields_array = [
+        [ "identity",      FALSE ],
+        [ "first_name",    FALSE ],
+        [ "last_name",     FALSE ],
+        [ "email_address", FALSE ],
+        [ "location_id",   FALSE ],
+        [ "location",      TRUE  ]
+    ]
+
+See that `location` is designated as an alias, but no indication is made as to which field it is an alias of.  This will be exposed by the `get_real_field_name()` routine.
+
+## `get_real_field_name()`
+
+The `STD_DATABASE` routine `get_real_field_name()` provides the real field name that a given alias points to.  Three arguments are provided to the routine:  the table name, the alias name, and a variable that will be populated with the name of the real field that the alias points to.
+
+For example:
+
+    JOIN STANDARD_LIBRARY STD_DATABASE
+    DECLARE real_field
+    get_real_field_name("person", "location", real_field)
+
+Using the above `person` table definition, `real_field` would be populated with the value `"location_id"`.
+
+## `GET_TABLE_DETAILS` and `GET_FIELD_DETAILS`
+
+I'm grouping these two commands together because they're very similar.  Each command takes three arguments: the name of a table or field (in the format of `table.field` for fields), the name of the attribute of that table or field, and a variable that will be populated with the value of the attribute.
+
+For example, again using the `person` table described above:
+
+
+
+
