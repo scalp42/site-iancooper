@@ -1491,10 +1491,10 @@ function convert_tree_to_html( tree, references, options ) {
       break;
     case "code_block":
       jsonml[ 0 ] = "pre";
-/*      i = attrs ? 2 : 1;
+      i = attrs ? 2 : 1;
       var code = [ "code" ];
       code.push.apply( code, jsonml.splice( i ) );
-      jsonml[ i ] = code; */
+      jsonml[ i ] = code;
       break;
     case "inlinecode":
       jsonml[ 0 ] = "code";
