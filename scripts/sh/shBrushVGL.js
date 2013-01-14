@@ -44,7 +44,7 @@
     Brush.prototype	= new SyntaxHighlighter.Highlighter();
     Brush.aliases	= ['vgl', 'rpf'];
     
-    SyntaxHighlighter.brushes.JScript = Brush;
+    SyntaxHighlighter.brushes.VGL = Brush;
     
     // CommonJS
     typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
