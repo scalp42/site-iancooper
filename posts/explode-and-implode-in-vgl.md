@@ -8,13 +8,45 @@ VGL lacks native string-to-array and array-to-string routines, often seen as `ex
 
 Suppose we have a string containing `"victor|golf|lima"`.  The expression `explode("victor|golf|lima", "|")` would evaluate to a one-dimensional VGL array containing the strings `"victor"`, `"golf"`, and `"lima"`.  Here's the code for `explode()`:
 
-[explode.rpf](gist:4431755)
+    ROUTINE explode(VALUE delimited_string, VALUE delimeter)
+        DECLARE temp, dlen, arr, i, pos
+        temp = delimited_string
+        dlen = LENGTH(delimeter)
+        ARRAY arr
+        i = 1
+     
+        pos = INDEX(temp, delimeter)
+        WHILE (pos <> 0) DO
+            arr[i] = LEFTSTRING(temp, pos - 1)
+            temp = RIGHTSTRING(temp, LENGTH(temp) - pos - dlen + 1)
+            i = i + 1
+            pos = INDEX(temp, delimeter)
+        ENDWHILE
+        arr[i] = temp
+     
+        RETURN(arr)
+    ENDROUTINE
 
 ## Implode
 
 To reverse the process, suppose we have an array containing three strings: `"victor"`, `"golf"`, and `"lima"`.  To join these together in a pipe-delimited string (e.g. `"victor|golf|lima"`), we'd execute `implode(array, "|")`, where `array` is the above array (there's no inline array syntax in VGL).  Here's the code for `implode()`:
 
-<script type="text/javascript" src="https://gist.github.com/4431755.js"></script>
+    JOIN STANDARD_LIBRARY STD_ARRAY
+     
+    ROUTINE implode(arr, VALUE delimeter)
+        DECLARE delimited_string, arrlen, i
+        delimited_string = ""
+        arrlen = size_of_array(arr)
+     
+        i = 1
+        WHILE (i < arrlen) DO
+            delimited_string = delimited_string : arr[i] : delimeter
+            i = i + 1
+        ENDWHILE
+        delimited_string = delimited_string : arr[arrlen]
+     
+        RETURN(delimited_string)
+    ENDROUTINE
 
 Note that we have to join the `STD_ARRAY` library to get the `size_of_array()` routine.  There are a few other routines in `STD_ARRAY` but it's woefully incomplete when compared to mainstream programming languages.
 
