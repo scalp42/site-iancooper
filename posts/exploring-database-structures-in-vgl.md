@@ -2,7 +2,13 @@
 
 In [SampleManager](http://www.thermo.com/samplemanager), the database structure is defined in `structure.txt`, unsurprisingly known as _the structure file_.  The structure file uses a pretty straightforward syntax that defines the various tables, views, and indicies in the database that are used by SampleManager.  For a quick example, this snippet could define a table called `person`:
 
-![person.rpf](gist:4447646)
+    TABLE person;
+        FIELD identity      DATATYPE IDENTITY USED_FOR UNIQUE_KEY;
+        FIELD first_name    DATATYPE TEXT(32);
+        FIELD middle_name   DATATYPE TEXT(32);
+        FIELD last_name     DATATYPE TEXT(32);
+        FIELD email_address DATATYPE TEXT(255);
+        FIELD location      LINKS_TO location.identity;
 
 The syntax is case-insensitive and whitespace is also insignificant, so we can use capitalization, spacing, and indentation to help make it more human-readable.
 
@@ -18,7 +24,9 @@ When you're developing VGL code (the scripting language used throughout SampleMa
 
 The `STD_STRUCTURE` standard library contains the `get_table_names()` routine.  It takes one argument, an array variable, which will be populated by the routine with a list of all of the table (and view) names.  The array will be a two-dimensional array, which makes it easy to use with the `browse_on_array()` routine.  For example:
 
-![get_table_names.rpf](gist:4447646)
+    JOIN STANDARD_LIBRARY STD_DATABASE
+    DECLARE real_field
+    get_real_field_name("person", "location", real_field)
     
 This would populate `tables_array` with data that looks something like this; the second element of each row will always be `EMPTY`:
 
@@ -36,7 +44,9 @@ The `get_field_names()` routine, also in `STD_DATABASE`, takes two arguments.  T
 
 For example:
 
-![get_field_names.rpf](gist:4447646)
+    JOIN STANDARD_LIBRARY STD_STRUCTURE
+    DECLARE fields_array
+    get_field_names("person", fields_array)
     
 Using the definition of `person` from above, this would populate `fields_array` with something that looks like this:
 
@@ -57,7 +67,9 @@ The `STD_DATABASE` routine `get_real_field_name()` provides the real field name 
 
 For example:
 
-![get_real_field_name.rpf](gist:4447646)
+    JOIN STANDARD_LIBRARY STD_DATABASE
+    DECLARE real_field
+    get_real_field_name("person", "location", real_field)
 
 Using the above `person` table definition, `real_field` would be populated with the value `"location_id"`.
 
@@ -67,7 +79,7 @@ I'm grouping these two commands together because they're very similar.  Each com
 
 For example:
 
-![get_field_details.rpf](gist:4447646)
+    GET_FIELD_DETAILS person.email_address, "DATA_TYPE", email_data_type
 
 Continuing with the `person` table described above, `email_data_type` would be populated with the value `"Text"`.  There are many attributes of tables and fields; the full list is available in the _VGL Programmer's Guide_, located in the `Help` folder of your SampleManager server, usually at `C:\Program Files (x86)\Thermo\SampleManager\10.2\Help\Programmers_Guide.chm` or similar.
 
