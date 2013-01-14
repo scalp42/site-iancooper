@@ -42,11 +42,10 @@ convertimg = (img) ->
 # syntax-highlight <pre> tags if we can
 convertpre = (pre) ->
   data = $(pre).html()
-  lang = data.match(/^\#([a-z0-9]+)$/m)[1]
-
-  if _.has brushes, lang
-    $(pre).addClass("brush: #{lang}").html data.replace "##{lang}\n", ''
-    SyntaxHighlighter.highlight 'pre', pre
+  if lang = data.match /^\#([a-z0-9]+)$/m
+    if _.has brushes, lang[1]
+      $(pre).addClass("brush: #{lang[1]}").html data.replace "##{lang[1]}\n", ''
+      SyntaxHighlighter.highlight 'pre', pre
 
 # escape html
 sanitize = (data) ->

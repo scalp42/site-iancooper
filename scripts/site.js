@@ -54,10 +54,11 @@ convertimg = function(img) {
 convertpre = function(pre) {
   var data, lang;
   data = $(pre).html();
-  lang = data.match(/^\#([a-z0-9]+)$/m)[1];
-  if (_.has(brushes, lang)) {
-    $(pre).addClass("brush: " + lang).html(data.replace("#" + lang + "\n", ''));
-    return SyntaxHighlighter.highlight('pre', pre);
+  if (lang = data.match(/^\#([a-z0-9]+)$/m)) {
+    if (_.has(brushes, lang[1])) {
+      $(pre).addClass("brush: " + lang[1]).html(data.replace("#" + lang[1] + "\n", ''));
+      return SyntaxHighlighter.highlight('pre', pre);
+    }
   }
 };
 
