@@ -4,14 +4,14 @@ Coming soon. ;-)
 
 JS example:
 
-    #js
+    #javascript
     if (this === "javascript") {
         syntax_highlighted();
     }
 
 CoffeeScript example:
 
-    #coffee
+    #coffeescript
     if this is "coffeescript"
       syntax_highlighted()
     else
