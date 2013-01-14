@@ -8,13 +8,13 @@ VGL lacks native string-to-array and array-to-string routines, often seen as `ex
 
 Suppose we have a string containing `"victor|golf|lima"`.  The expression `explode("victor|golf|lima", "|")` would evaluate to a one-dimensional VGL array containing the strings `"victor"`, `"golf"`, and `"lima"`.  Here's the code for `explode()`:
 
-<script src="https://gist.github.com/4431755.js"></script>
+[explode.rpf](gist:4431775)
 
 ## Implode
 
 To reverse the process, suppose we have an array containing three strings: `"victor"`, `"golf"`, and `"lima"`.  To join these together in a pipe-delimited string (e.g. `"victor|golf|lima"`), we'd execute `implode(array, "|")`, where `array` is the above array (there's no inline array syntax in VGL).  Here's the code for `implode()`:
 
-![implode.rpf](gist:4431755)
+[implode.rpf](gist:4431755)
 
 Note that we have to join the `STD_ARRAY` library to get the `size_of_array()` routine.  There are a few other routines in `STD_ARRAY` but it's woefully incomplete when compared to mainstream programming languages.
 
