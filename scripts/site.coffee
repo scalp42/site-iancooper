@@ -37,20 +37,8 @@ convertimg = (img) ->
 
 # include gists
 convertgist = (gist) ->
-  gist = $ gist
-  file = gist.attr 'alt'
-  id = gist.attr('src').match /^gist\:([0-9a-z]+)$/i
-  if id?
-    load "https://api.github.com/gists/#{id[1]}", 'jsonp', (data) ->
-      if data.data.files?
-        pre = $(document.createElement 'pre')
-        content = sanitize data.data.files[file].content
-        content = vglize content if /\.rpf$/.test file
-        pre.html content
-        gist.parent().replaceWith pre
-      else
-        gist.parent().css 'margin-left', '2rem'
-        gist.replaceWith "<code>&raquo;&nbsp;</code><a href=\"https://gist.github.com/#{id[1]}#file-#{file.replace /\./g, '-'}\"><code>#{file}</code></a>"
+  id = gist.href.replace /^gist\:/i, ''
+  $(gist).replaceWith "<script type=\"text/javascript\" src=\"https://gist.github.com/#{id}.js\"></script>"
 
 # escape tags and ampersands
 sanitize = (data) ->
@@ -61,14 +49,6 @@ replaceall = (text, replacements) ->
   for r in replacements
     text = text.replace r[0], r[1]
   text
-
-# stupid keyword highlighting for VGL
-vglize = (code) ->
-  replaceall " #{code} ", [
-    [ /(\W)([A-Z_]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3' ]
-    [ /^\s/, '' ]
-    [ /\s$/, '' ]
-  ]
 
 # convert markdown to html
 markup = markdown.toHTML
@@ -118,7 +98,7 @@ show = (post) ->
 
     # process special tags
     $('img[src$="#stretch-me"]', container).each () -> convertimg @
-    $('img[src^="gist:"]', container).each () -> convertgist @
+    $('a[href^="gist:"]', container).each () -> convertgist @
 
     # add email links
     addemails container
