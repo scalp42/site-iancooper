@@ -38,7 +38,7 @@ convertimg = (img) ->
 # syntax-highlight <pre> tags if we can
 convertpre = (pre) ->
   data = $(pre).html()
-  lang = data.match(/^\#([a-z0-9]+)$/)[1]
+  lang = data.match(/^\#([a-z0-9]+)$/m)[1]
   alert lang
 
 # escape html

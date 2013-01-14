@@ -48,7 +48,7 @@ convertimg = function(img) {
 convertpre = function(pre) {
   var data, lang;
   data = $(pre).html();
-  lang = data.match(/^\#([a-z0-9]+)$/)[1];
+  lang = data.match(/^\#([a-z0-9]+)$/m)[1];
   return alert(lang);
 };
 
