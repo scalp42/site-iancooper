@@ -71,9 +71,7 @@ vglize = (code) ->
   ]
 
 # convert markdown to html
-markup = (markdown) ->
-  window.Converter ?= new Markdown.Converter()
-  window.Converter.makeHtml markdown
+markup = markdown.toHTML
 
 # load data
 load = (url, type, callback) ->

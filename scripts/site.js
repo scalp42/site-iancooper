@@ -86,13 +86,7 @@ vglize = function(code) {
   return replaceall(" " + code + " ", [[/(\W)([A-Z_]+)(\W)/g, '$1<span class="vgl-keyword">$2</span>$3'], [/^\s/, ''], [/\s$/, '']]);
 };
 
-markup = function(markdown) {
-  var _ref;
-  if ((_ref = window.Converter) == null) {
-    window.Converter = new Markdown.Converter();
-  }
-  return window.Converter.makeHtml(markdown);
-};
+markup = markdown.toHTML;
 
 load = function(url, type, callback) {
   return $.ajax({
