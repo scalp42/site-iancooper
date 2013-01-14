@@ -1411,7 +1411,8 @@ function escapeHTML( text ) {
 function render_tree( jsonml ) {
   // basic case
   if ( typeof jsonml === "string" ) {
-    return escapeHTML( jsonml );
+    // return escapeHTML( jsonml );
+    return jsonml;
   }
 
   var tag = jsonml.shift(),

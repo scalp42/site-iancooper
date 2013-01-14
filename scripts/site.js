@@ -48,7 +48,7 @@ convertimg = function(img) {
 convertgist = function(gist) {
   var id;
   id = gist.href.replace(/^gist\:/i, '');
-  return $(gist).replaceWith("<script type=\"text/javascript\" src=\"https://gist.github.com/" + id + ".js\"></script>");
+  return $(gist).replaceWith("<b>" + id + "</b><script type=\"text/javascript\" src=\"https://gist.github.com/" + id + ".js\"></script>");
 };
 
 sanitize = function(data) {
