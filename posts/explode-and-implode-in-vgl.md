@@ -8,11 +8,11 @@ VGL lacks native string-to-array and array-to-string routines, often seen as `ex
 
 Suppose we have a string containing `"victor|golf|lima"`.  The expression `explode("victor|golf|lima", "|")` would evaluate to a one-dimensional VGL array containing the strings `"victor"`, `"golf"`, and `"lima"`.  Here's the code for `explode()`:
 
-[explode.rpf](gist:4431775)
+[explode.rpf](gist:4431755)
 
 ## Implode
 
-To reverse the process, suppose we have an array containing three strings: `"victor"`, `"golf"`, and `"lima"`.  To join these together in a pipe-delimited string (e.g. `"victor|golf|lima"`), we'd execute `implode(array, "|")`, where `array` is the above array (there's no inline array syntax in VGL).  Here's the code for `implode()`:
+To reverse the process, suppose we have an array containing three strings: `"victor"`, `"golf"`, and `"lima"`.  To join these together in a pipe-delimited string (e.g. `"victor|golf|lima"`), we'd execute `implode(array, "|")`, where `array` is the above array (there's no inline array syntax in <b>VGL</b>).  Here's the code for `implode()`:
 
 [implode.rpf](gist:4431755)
 

@@ -38,7 +38,7 @@ convertimg = (img) ->
 # include gists
 convertgist = (gist) ->
   id = gist.href.replace /^gist\:/i, ''
-  $(gist).replaceWith "<script type=\"text/javascript\" src=\"https://gist.github.com/#{id}.js\"></script>"
+  $(gist).replaceWith "<b>#{id}</b><script type=\"text/javascript\" src=\"https://gist.github.com/#{id}.js\"></script>"
 
 # escape tags and ampersands
 sanitize = (data) ->
