@@ -4,6 +4,7 @@ I wanted to have good code syntax highlighting for this site, so I'm using [Alex
 
 It's not perfect, but it works well enough for my purposes here.  Here's the code:
 
+    #coffee
     ###
     # Public domain VGL Brush for Alex Gorbatchev's SyntaxHighlighter
     # http://iancooper.name/vgl-brush-for-syntaxhighlighter
