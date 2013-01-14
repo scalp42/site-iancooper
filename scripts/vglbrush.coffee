@@ -8,7 +8,7 @@
 
 SyntaxHighlighter.brushes.VGL = ->
 
-  keywords = new RegExp '\S(' + [
+  keywords = new RegExp '\W(' + [
     '$ENDLITERAL', 'ACTIONS', 'ACTIVE', 'AND', 'ARCCOS', 'ARCSIN',
     'ARCTAN', 'ARRAY', 'ARRAYSIZE', 'ASCENDING', 'ASCII', 'ASSIGN',
     'AT', 'AUDIT_EVENT', 'AVG', 'BARCODE', 'BLANK', 'BOLD', 'BORDER',
@@ -56,7 +56,7 @@ SyntaxHighlighter.brushes.VGL = ->
     'UPDATE', 'USING', 'VALUE', 'WAIT', 'WAKEUP', 'WAKE_UP_BACKGROUND',
     'WHERE', 'WHILE', 'WIDTH', 'WINDOW', 'WINDOWS', 'WITH', 'WRITE',
     'WRITE_ARRAY'
-  ].join('|') + ')\S', 'gm'
+  ].join('|') + ')\W', 'gm'
 
   @regexList = [
     { css: 'comments', regex: /{[^}]*}/gm }
