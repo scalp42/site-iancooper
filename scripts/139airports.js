@@ -1,4 +1,4 @@
-(function() {
+$(function() {
 
     // load the Google Maps API
     var script = document.createElement('script');
