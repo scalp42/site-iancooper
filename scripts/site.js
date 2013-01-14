@@ -45,7 +45,12 @@ convertimg = function(img) {
   }
 };
 
-convertpre = function(pre) {};
+convertpre = function(pre) {
+  var data, lang;
+  data = $(pre).html();
+  lang = data.match(/^\#([a-z0-9]+)$/)[1];
+  return alert(lang);
+};
 
 sanitize = function(data) {
   return replaceall(data, [[/&/g, '&amp;'], [/</g, '&lt;'], [/>/g, '&gt;'], [/\"/g, '&quot;'], [/\'/g, '&#39;']]);
