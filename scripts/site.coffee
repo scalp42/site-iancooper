@@ -1,16 +1,19 @@
 posts = []
 time_zones =
-    # UTC       ST     DT
-    '-1000': [ 'HAST', no ]
-    '-0900': [ 'AKST', 'HADT' ]
-    '-0800': [ 'PST',  'AKDT' ]
-    '-0700': [ 'MST',  'PDT'  ]
-    '-0600': [ 'CST',  'MDT'  ]
-    '-0500': [ 'EST',  'CDT'  ]
-    '-0400': [ 'AST',  'EDT'  ]
-    '-0330': [ 'NST',  no     ]
-    '-0300': [ no,    'ADT'   ]
-    '-0230': [ no,    'NDT'   ]
+  # UTC       ST     DT
+  '-1000': [ 'HAST', no ]
+  '-0900': [ 'AKST', 'HADT' ]
+  '-0800': [ 'PST',  'AKDT' ]
+  '-0700': [ 'MST',  'PDT'  ]
+  '-0600': [ 'CST',  'MDT'  ]
+  '-0500': [ 'EST',  'CDT'  ]
+  '-0400': [ 'AST',  'EDT'  ]
+  '-0330': [ 'NST',  no     ]
+  '-0300': [ no,    'ADT'   ]
+  '-0230': [ no,    'NDT'   ]
+brushes =
+  'js':     'shBrushJScript.js'
+  'coffee': 'shBrushCoffeeScript.js'
 
 # set my preferred am/pm format
 moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
@@ -39,7 +42,9 @@ convertimg = (img) ->
 convertpre = (pre) ->
   data = $(pre).html()
   lang = data.match(/^\#([a-z0-9]+)$/m)[1]
-  alert lang
+
+  if _.contains Object.keys(brushes), lang
+    $(pre).html data.replace "##{lang}\n", ''
 
 # escape html
 sanitize = (data) ->
