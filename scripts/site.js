@@ -163,6 +163,9 @@ addemails = function(context) {
 };
 
 $(function() {
+  console.dir({
+    brushes: _.pairs(brushes)
+  });
   SyntaxHighlighter.autoloader(_.pairs(brushes));
   addemails();
   $('nav > header > h1').css('cursor', 'pointer').click(function(event) {

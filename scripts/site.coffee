@@ -135,6 +135,7 @@ addemails = (context) ->
 $ ->
 
   # set up syntaxhighlighter brush autoloading
+  console.dir { brushes: _.pairs brushes }
   SyntaxHighlighter.autoloader _.pairs brushes
 
   # add email links
