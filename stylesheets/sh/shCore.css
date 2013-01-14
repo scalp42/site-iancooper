@@ -32,7 +32,7 @@
   float: none !important;
   height: auto !important;
   left: auto !important;
-  line-height: 1.1em !important;
+  line-height: 1.1rem !important;
   margin: 0 !important;
   outline: 0 !important;
   overflow: visible !important;
@@ -47,17 +47,17 @@
   font-family: 'Source Code Pro', monospace !important;
   font-weight: normal !important;
   font-style: normal !important;
-  font-size: 1em !important;
+  font-size: 1rem !important;
   min-height: inherit !important;
   min-height: auto !important;
 }
 
 .syntaxhighlighter {
   width: 100% !important;
-  margin: 1em 0 1em 0 !important;
+  margin: 1rem 0 1rem 0 !important;
   position: relative !important;
-  /* overflow: auto !important; */
-  font-size: 1em !important;
+  overflow: visible !important;
+  font-size: 1rem !important;
 }
 .syntaxhighlighter.source {
   overflow: hidden !important;
@@ -76,7 +76,7 @@
 }
 .syntaxhighlighter table caption {
   text-align: left !important;
-  padding: .5em 0 0.5em 1em !important;
+  padding: .5rem 0 0.5rem 1rem !important;
 }
 .syntaxhighlighter table td.code {
   width: 100% !important;
@@ -93,19 +93,19 @@
   height: 100% !important;
   border: none !important;
   background: white !important;
-  padding-left: 1em !important;
+  padding-left: 1rem !important;
   overflow: hidden !important;
   white-space: pre !important;
 }
 .syntaxhighlighter table td.gutter .line {
   text-align: right !important;
-  padding: 0 0.5em 0 1em !important;
+  padding: 0 0.5rem 0 1rem !important;
 }
 .syntaxhighlighter table td.code .line {
-  padding: 0 1em !important;
+  padding: 0 1rem !important;
 }
 .syntaxhighlighter.nogutter td.code .container textarea, .syntaxhighlighter.nogutter td.code .line {
-  padding-left: 0em !important;
+  padding-left: 0rem !important;
 }
 .syntaxhighlighter.show {
   display: block !important;
@@ -114,15 +114,15 @@
   display: none !important;
 }
 .syntaxhighlighter.collapsed .toolbar {
-  padding: 0.1em 0.8em 0em 0.8em !important;
-  font-size: 1em !important;
+  padding: 0.1rem 0.8rem 0rem 0.8rem !important;
+  font-size: 1rem !important;
   position: static !important;
   width: auto !important;
   height: auto !important;
 }
 .syntaxhighlighter.collapsed .toolbar span {
   display: inline !important;
-  margin-right: 1em !important;
+  margin-right: 1rem !important;
 }
 .syntaxhighlighter.collapsed .toolbar span a {
   padding: 0 !important;
@@ -153,7 +153,7 @@
   display: none !important;
 }
 .syntaxhighlighter.ie {
-  font-size: .9em !important;
+  font-size: .9rem !important;
   padding: 1px 0 1px 0 !important;
 }
 .syntaxhighlighter.ie .toolbar {
