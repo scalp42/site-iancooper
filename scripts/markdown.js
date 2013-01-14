@@ -1434,7 +1434,7 @@ function render_tree( jsonml ) {
 
   // be careful about adding whitespace here for inline elements
   if ( tag == "img" || tag == "br" || tag == "hr" ) {
-    return "<"+ tag + tag_attrs + "/>";
+    return "<"+ tag + tag_attrs + " />";
   }
   else {
     return "<"+ tag + tag_attrs + ">" + content.join( "" ) + "</" + tag + ">";

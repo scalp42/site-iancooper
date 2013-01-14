@@ -62,7 +62,7 @@ SyntaxHighlighter.brushes.VGL = ->
     { css: 'comments', regex: /{[^}]*}/gm }
     { css: 'string',   regex: SyntaxHighlighter.regexLib.doubleQuotedString }
     { css: 'string',   regex: SyntaxHighlighter.regexLib.singleQuotedString }
-    { css: 'keyword',  regex: /[\-+*\/<>!~%\^&|=]/gm }
+    { css: 'keyword',  regex: /(?:&lt;|&gt;|&amp;|[\-+*\/<>!~%\^&|=])/gm }
     { css: 'keyword',  regex: keywords }
   ]
 
