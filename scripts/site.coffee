@@ -1,5 +1,4 @@
 posts = []
-
 time_zones =
   # UTC       ST     DT
   '-1000': [ 'HAST', no ]
@@ -12,14 +11,9 @@ time_zones =
   '-0330': [ 'NST',  no     ]
   '-0300': [ no,    'ADT'   ]
   '-0230': [ no,    'NDT'   ]
-
 brushes =
   js:     yes
   coffee: yes
-
-brushes.defaults =
-  toolbar: no
-  gutter: no
 
 # set my preferred am/pm format
 moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
@@ -138,8 +132,8 @@ addemails = (context) ->
   $('a[href="#email"]').attr 'href', 'mailto:me+website@iancooper.name'
 
 # syntaxhighlighter configuration
-for key in brushes.defaults
-  SyntaxHighlighter.defaults[key] = brushes.defaults[key]
+SyntaxHighlighter.defaults.toolbar = no
+SyntaxHighlighter.defaults.gutter = no
 
 # wait until the DOM is parsed and ready
 $ ->
