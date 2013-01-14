@@ -22,7 +22,7 @@ SyntaxHighlighter.brushes.VGL = function() {
       regex: SyntaxHighlighter.regexLib.singleQuotedString
     }, {
       css: 'color1',
-      regex: /(?:&lt;|&gt;|&amp;|[\-+*\/<>!~%\^&|=])/gm
+      regex: /(?:&lt;|&gt;|&amp;|[\-+*\/<>!~%\^&|=,.])/gm
     }, {
       css: 'keyword',
       regex: keywords
