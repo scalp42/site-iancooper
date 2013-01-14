@@ -35,6 +35,10 @@ convertimg = (img) ->
     $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
     $(window).trigger 'resize'
 
+# syntax-highlight <pre> tags if we can
+convertpre = (pre) ->
+
+
 # escape html
 sanitize = (data) ->
   replaceall data, [
@@ -99,6 +103,7 @@ show = (post) ->
 
     # process special tags
     $('img[src$="#stretch-me"]', container).each () -> convertimg @
+    $('pre', container).each () -> convertpre @
 
     # add email links
     addemails container
