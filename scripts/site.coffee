@@ -131,12 +131,12 @@ addemails = (context) ->
   context ?= $ 'body'
   $('a[href="#email"]').attr 'href', 'mailto:me+website@iancooper.name'
 
+# set up syntaxhighlighter brush autoloading
+console.dir { brushes: _.pairs brushes }
+SyntaxHighlighter.autoloader _.pairs brushes
+
 # wait until the DOM is parsed and ready
 $ ->
-
-  # set up syntaxhighlighter brush autoloading
-  console.dir { brushes: _.pairs brushes }
-  SyntaxHighlighter.autoloader _.pairs brushes
 
   # add email links
   addemails()

@@ -162,11 +162,13 @@ addemails = function(context) {
   return $('a[href="#email"]').attr('href', 'mailto:me+website@iancooper.name');
 };
 
+console.dir({
+  brushes: _.pairs(brushes)
+});
+
+SyntaxHighlighter.autoloader(_.pairs(brushes));
+
 $(function() {
-  console.dir({
-    brushes: _.pairs(brushes)
-  });
-  SyntaxHighlighter.autoloader(_.pairs(brushes));
   addemails();
   $('nav > header > h1').css('cursor', 'pointer').click(function(event) {
     event.preventDefault();
