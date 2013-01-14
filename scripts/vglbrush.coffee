@@ -6,9 +6,8 @@
 # 14 Jan 2013
 ###
 
-SyntaxHighlighter.brushes.CoffeeScript = ->
+SyntaxHighlighter.brushes.VGL = ->
 
-######################################################################
   keywords = new RegExp '(' + [
     '$ENDLITERAL', 'ACTIONS', 'ACTIVE', 'AND', 'ARCCOS', 'ARCSIN',
     'ARCTAN', 'ARRAY', 'ARRAYSIZE', 'ASCENDING', 'ASCII', 'ASSIGN',
@@ -64,7 +63,7 @@ SyntaxHighlighter.brushes.CoffeeScript = ->
     { css: 'string',   regex: SyntaxHighlighter.regexLib.doubleQuotedString }
     { css: 'string',   regex: SyntaxHighlighter.regexLib.singleQuotedString }
     { css: 'keyword',  regex: /[\-+*\/<>!~%\^&|]/gm }
-    { css: 'keyword',  regex: new RegExp(@getKeywords(keywords), 'gm') }
+    { css: 'keyword',  regex: keywords }
   ]
 
 SyntaxHighlighter.brushes.VGL:: = new SyntaxHighlighter.Highlighter()
