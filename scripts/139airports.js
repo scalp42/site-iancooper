@@ -18,7 +18,10 @@
 	var airports = new googlemaps.FusionTablesLayer({
 	    suppressInfoWindows: true,
 	    map: map,
-	    query: { select: 'Latitude', from: '1dBmChEdPydgC_Ijad5jkDzS6TEjH0MMvuKB0g6A' }
+	    query: {
+		select: 'Latitude',
+		from: '1dBmChEdPydgC_Ijad5jkDzS6TEjH0MMvuKB0g6A'
+	    },
 	    styles: [ { markerOptions: { iconName: 'large_red' } } ]
 	});
 	
