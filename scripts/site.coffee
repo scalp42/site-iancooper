@@ -11,10 +11,6 @@ time_zones =
   '-0330': [ 'NST',  no     ]
   '-0300': [ no,    'ADT'   ]
   '-0230': [ no,    'NDT'   ]
-brushes =
-  js:     yes
-  coffee: yes
-  vgl:    yes
 
 # set my preferred am/pm format
 moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
@@ -39,13 +35,12 @@ convertimg = (img) ->
     $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
     $(window).trigger 'resize'
 
-# syntax-highlight <pre> tags if we can
-convertpre = (pre) ->
-  data = $(pre).html()
+# syntax-highlight code if we can
+highlight = (code) ->
+  data = $(code).html()
   if lang = data.match /^\#([a-z0-9]+)$/m
-    if _.has brushes, lang[1]
-      $(pre).addClass("brush: #{lang[1]}").html data.replace "##{lang[1]}\n", ''
-      SyntaxHighlighter.highlight 'pre', pre
+    $(code).addClass("language-#{lang[1]}").html data.replace "##{lang[1]}\n", ''
+    hljs.highlightBlock code, null, no
 
 # escape html
 sanitize = (data) ->
@@ -130,10 +125,6 @@ routing = (map) ->
 addemails = (context) ->
   context ?= $ 'body'
   $('a[href="#email"]').attr 'href', 'mailto:me+website@iancooper.name'
-
-# syntaxhighlighter configuration
-SyntaxHighlighter.defaults.toolbar = no
-SyntaxHighlighter.defaults.gutter = no
 
 # wait until the DOM is parsed and ready
 $ ->
