@@ -13,5 +13,4 @@ Here's some JavaScript code to show [the locations of all part 139 certificated 
     function maps_loaded() {
     }
 
-<script type="text/javascript" src="scripts/139airports.js"></script>
 <div id="139airports"></div>
