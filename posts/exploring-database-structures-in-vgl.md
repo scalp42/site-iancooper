@@ -25,12 +25,14 @@ When you're developing VGL code (the scripting language used throughout SampleMa
 
 The `STD_STRUCTURE` standard library contains the `get_table_names()` routine.  It takes one argument, an array variable, which will be populated by the routine with a list of all of the table (and view) names.  The array will be a two-dimensional array, which makes it easy to use with the `browse_on_array()` routine.  For example:
 
+    #vgl
     JOIN STANDARD_LIBRARY STD_DATABASE
     DECLARE real_field
     get_real_field_name("person", "location", real_field)
     
 This would populate `tables_array` with data that looks something like this; the second element of each row will always be `EMPTY`:
 
+    #js
     tables_array = [
         [ "person", EMPTY ],
         [ "sample", EMPTY ],
@@ -45,12 +47,14 @@ The `get_field_names()` routine, also in `STD_DATABASE`, takes two arguments.  T
 
 For example:
 
+    #vgl
     JOIN STANDARD_LIBRARY STD_STRUCTURE
     DECLARE fields_array
     get_field_names("person", fields_array)
     
 Using the definition of `person` from above, this would populate `fields_array` with something that looks like this:
 
+    #js
     fields_array = [
         [ "identity",      FALSE ],
         [ "first_name",    FALSE ],
@@ -68,6 +72,7 @@ The `STD_DATABASE` routine `get_real_field_name()` provides the real field name 
 
 For example:
 
+    #vgl
     JOIN STANDARD_LIBRARY STD_DATABASE
     DECLARE real_field
     get_real_field_name("person", "location", real_field)
@@ -80,6 +85,7 @@ I'm grouping these two commands together because they're very similar.  Each com
 
 For example:
 
+    #vgl
     GET_FIELD_DETAILS person.email_address, "DATA_TYPE", email_data_type
 
 Continuing with the `person` table described above, `email_data_type` would be populated with the value `"Text"`.  There are many attributes of tables and fields; the full list is available in the _VGL Programmer's Guide_, located in the `Help` folder of your SampleManager server, usually at `C:\Program Files (x86)\Thermo\SampleManager\10.2\Help\Programmers_Guide.chm` or similar.
