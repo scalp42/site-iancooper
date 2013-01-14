@@ -18,7 +18,8 @@ time_zones = {
 
 brushes = {
   js: true,
-  coffee: true
+  coffee: true,
+  vgl: true
 };
 
 moment.meridiem = function(hour) {

@@ -14,6 +14,7 @@ time_zones =
 brushes =
   js:     yes
   coffee: yes
+  vgl:    yes
 
 # set my preferred am/pm format
 moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
