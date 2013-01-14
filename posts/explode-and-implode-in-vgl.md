@@ -12,9 +12,9 @@ Suppose we have a string containing `"victor|golf|lima"`.  The expression `explo
 
 ## Implode
 
-To reverse the process, suppose we have an array containing three strings: `"victor"`, `"golf"`, and `"lima"`.  To join these together in a pipe-delimited string (e.g. `"victor|golf|lima"`), we'd execute `implode(array, "|")`, where `array` is the above array (there's no inline array syntax in <b>VGL</b>).  Here's the code for `implode()`:
+To reverse the process, suppose we have an array containing three strings: `"victor"`, `"golf"`, and `"lima"`.  To join these together in a pipe-delimited string (e.g. `"victor|golf|lima"`), we'd execute `implode(array, "|")`, where `array` is the above array (there's no inline array syntax in VGL).  Here's the code for `implode()`:
 
-[implode.rpf](gist:4431755)
+<script type="text/javascript" src="https://gist.github.com/4431755.js"></script>
 
 Note that we have to join the `STD_ARRAY` library to get the `size_of_array()` routine.  There are a few other routines in `STD_ARRAY` but it's woefully incomplete when compared to mainstream programming languages.
 

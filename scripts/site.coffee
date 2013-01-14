@@ -35,14 +35,15 @@ convertimg = (img) ->
     $(window).resize () -> div.css 'height', "#{div.width() * ratio}px"
     $(window).trigger 'resize'
 
-# include gists
-convertgist = (gist) ->
-  id = gist.href.replace /^gist\:/i, ''
-  $(gist).replaceWith "<b>#{id}</b><script type=\"text/javascript\" src=\"https://gist.github.com/#{id}.js\"></script>"
-
-# escape tags and ampersands
+# escape html
 sanitize = (data) ->
-  data.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace />/g, '&gt;'
+  replaceall data, [
+    [ /&/g, '&amp;' ]
+    [ /</g, '&lt;' ]
+    [ />/g, '&gt;' ]
+    [ /\"/g, '&quot;' ]
+    [ /\'/g, '&#39;' ]
+  ]
 
 # multiple regex replacements
 replaceall = (text, replacements) ->
@@ -91,14 +92,13 @@ show = (post) ->
     tz = time_zones[post.moment.format 'ZZ'][if post.moment.isDST() then 1 else 0]
     tz = post.moment.format 'ZZ' unless tz
     article = $ document.createElement 'article'
-    article.append "<header><h1>#{post.title}</h1><h2>#{date} @ #{time} #{tz}</h2></header>"
+    article.append "<header><h1>#{sanitize post.title}</h1><h2>#{date} @ #{time} #{tz}</h2></header>"
     article.append "<section>#{post.html}</section>"
     $('section > h1', article).first().remove()
     container.append article
 
     # process special tags
     $('img[src$="#stretch-me"]', container).each () -> convertimg @
-    $('a[href^="gist:"]', container).each () -> convertgist @
 
     # add email links
     addemails container
