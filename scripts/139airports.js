@@ -7,7 +7,7 @@ $(function() {
     document.body.appendChild(script);
     
     // callback for when the API is loaded
-    function demo139airports_ready() {
+    window.demo139airports_ready = function() {
 	
 	var map = new google.maps.Map(document.getElementById('139airports'), {
 	    zoom: 4,
@@ -26,4 +26,4 @@ $(function() {
 	});
 	
     }
-})();
+});
