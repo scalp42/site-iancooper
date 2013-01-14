@@ -106,7 +106,7 @@ show = (post) ->
 
     # process special tags
     $('img[src$="#stretch-me"]', container).each () -> convertimg @
-    $('pre', container).each () -> convertpre @
+    $('pre > code', container).each () -> highlight @
 
     # add email links
     addemails container

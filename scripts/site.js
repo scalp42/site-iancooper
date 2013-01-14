@@ -121,8 +121,8 @@ show = function(post) {
     $('img[src$="#stretch-me"]', container).each(function() {
       return convertimg(this);
     });
-    $('pre', container).each(function() {
-      return convertpre(this);
+    $('pre > code', container).each(function() {
+      return highlight(this);
     });
     return addemails(container);
   }
