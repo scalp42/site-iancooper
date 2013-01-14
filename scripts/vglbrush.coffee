@@ -66,5 +66,7 @@ SyntaxHighlighter.brushes.VGL = ->
     { css: 'keyword',  regex: keywords }
   ]
 
+  undefined
+
 SyntaxHighlighter.brushes.VGL:: = new SyntaxHighlighter.Highlighter()
 SyntaxHighlighter.brushes.VGL.aliases = [ 'vgl', 'rpf', 'samplemanager' ]
