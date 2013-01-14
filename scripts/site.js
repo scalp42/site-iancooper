@@ -17,8 +17,8 @@ time_zones = {
 };
 
 brushes = {
-  'js': 'shBrushJScript.js',
-  'coffee': 'shBrushCoffeeScript.js'
+  js: '/scripts/sh/shBrushJScript.js',
+  coffee: '/scripts/sh/shBrushCoffeeScript.js'
 };
 
 moment.meridiem = function(hour) {
@@ -54,8 +54,9 @@ convertpre = function(pre) {
   var data, lang;
   data = $(pre).html();
   lang = data.match(/^\#([a-z0-9]+)$/m)[1];
-  if (_.contains(Object.keys(brushes), lang)) {
-    return $(pre).html(data.replace("#" + lang + "\n", ''));
+  if (_.has(brushes, lang)) {
+    $(pre).addClass("brush: " + lang).html(data.replace("#" + lang + "\n", ''));
+    return SyntaxHighlighter.highlight('pre', pre);
   }
 };
 
@@ -162,6 +163,7 @@ addemails = function(context) {
 };
 
 $(function() {
+  SyntaxHighlighter.autoloader(_.pairs(brushes));
   addemails();
   $('nav > header > h1').css('cursor', 'pointer').click(function(event) {
     event.preventDefault();

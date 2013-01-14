@@ -12,8 +12,8 @@ time_zones =
   '-0300': [ no,    'ADT'   ]
   '-0230': [ no,    'NDT'   ]
 brushes =
-  'js':     'shBrushJScript.js'
-  'coffee': 'shBrushCoffeeScript.js'
+  js:     '/scripts/sh/shBrushJScript.js'
+  coffee: '/scripts/sh/shBrushCoffeeScript.js'
 
 # set my preferred am/pm format
 moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
@@ -43,8 +43,9 @@ convertpre = (pre) ->
   data = $(pre).html()
   lang = data.match(/^\#([a-z0-9]+)$/m)[1]
 
-  if _.contains Object.keys(brushes), lang
-    $(pre).html data.replace "##{lang}\n", ''
+  if _.has brushes, lang
+    $(pre).addClass("brush: #{lang}").html data.replace "##{lang}\n", ''
+    SyntaxHighlighter.highlight 'pre', pre
 
 # escape html
 sanitize = (data) ->
@@ -132,6 +133,9 @@ addemails = (context) ->
 
 # wait until the DOM is parsed and ready
 $ ->
+
+  # set up syntaxhighlighter brush autoloading
+  SyntaxHighlighter.autoloader _.pairs brushes
 
   # add email links
   addemails()
