@@ -17,8 +17,8 @@ time_zones = {
 };
 
 brushes = {
-  js: '/scripts/sh/shBrushJScript.js',
-  coffee: '/scripts/sh/shBrushCoffeeScript.js'
+  js: true,
+  coffee: true
 };
 
 moment.meridiem = function(hour) {
@@ -161,12 +161,6 @@ addemails = function(context) {
   }
   return $('a[href="#email"]').attr('href', 'mailto:me+website@iancooper.name');
 };
-
-console.dir({
-  brushes: _.pairs(brushes)
-});
-
-SyntaxHighlighter.autoloader(_.pairs(brushes));
 
 $(function() {
   addemails();

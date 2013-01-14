@@ -12,8 +12,8 @@ time_zones =
   '-0300': [ no,    'ADT'   ]
   '-0230': [ no,    'NDT'   ]
 brushes =
-  js:     '/scripts/sh/shBrushJScript.js'
-  coffee: '/scripts/sh/shBrushCoffeeScript.js'
+  js:     yes
+  coffee: yes
 
 # set my preferred am/pm format
 moment.meridiem = (hour) -> ['a.m.', 'p.m.'][Math.floor hour / 12]
@@ -130,10 +130,6 @@ routing = (map) ->
 addemails = (context) ->
   context ?= $ 'body'
   $('a[href="#email"]').attr 'href', 'mailto:me+website@iancooper.name'
-
-# set up syntaxhighlighter brush autoloading
-console.dir { brushes: _.pairs brushes }
-SyntaxHighlighter.autoloader _.pairs brushes
 
 # wait until the DOM is parsed and ready
 $ ->
