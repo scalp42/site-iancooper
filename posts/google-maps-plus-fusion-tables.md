@@ -1,11 +1,11 @@
 # Google Maps + Fusion Tables
 
-Let's say that we'd like to show [the locations of all part 139 certificated airports](https://www.google.com/fusiontables/DataSource?docid=1dBmChEdPydgC_Ijad5jkDzS6TEjH0MMvuKB0g6A) on a map.  We've separated the airports into two categories: public use (green markers) and private use (red markers).
+Let's say that we'd like to show the locations of all [part 139 certificated airports](http://www.faa.gov/airports/airport_safety/part139_cert/?p1=what) on a map.  We've separated the airports into two categories: public use (green markers) and private use (red markers).
 
 <div id="139airports" style="width: 100%; height: 500px"></div>
 <script type="text/javascript" src="scripts/139airports.js"></script>
 
-Here's the JavaScript code that was used:
+I used some [freely-available data from the FAA](http://www.faa.gov/airports/airport_safety/airportdata_5010/) and put it in a [Google Fusion Table](https://www.google.com/fusiontables/DataSource?docid=1dBmChEdPydgC_Ijad5jkDzS6TEjH0MMvuKB0g6A) data store.  Now we can use a [Fusion Tables layer](https://developers.google.com/maps/documentation/javascript/layers#FusionTables) from [the Google Maps API](https://developers.google.com/maps/documentation/javascript/) to show the right markers in the right places.  Here's the code.
 
     #javascript
     // load the Google Maps API
