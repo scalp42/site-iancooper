@@ -14,7 +14,7 @@ $(function() {
 		if (items.type.indexOf("image/") === 0) {
 		    
 		    // get the image data
-		    var blob = items[i].getAsFile();
+		    var blob = item.getAsFile();
 		    
 		    // create a URL
 		    var source = window.URL.createObjectURL(blob);
