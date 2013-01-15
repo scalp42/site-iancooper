@@ -10,9 +10,7 @@
 $ ->
 
   showImage = (data) ->
-    url = window.URL.createObjectURL data
-    alert url
-    $('#clipboard').css 'background-image', "url(#{url})"
+    $('#clipboard').css 'background-image', "url(#{window.URL.createObjectURL data})"
 
   if window.Clipboard
     window.addEventListener 'paste', (event) ->
