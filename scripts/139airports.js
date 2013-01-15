@@ -17,31 +17,24 @@ $(function() {
 	});
 	
 	// create a layer for private airports
-	var private_airports = new google.maps.FusionTablesLayer({
+	var airports = new google.maps.FusionTablesLayer({
 	    suppressInfoWindows: true,
 	    map: map,
 	    query: {
 		select: 'Latitude',
-		from: '1dBmChEdPydgC_Ijad5jkDzS6TEjH0MMvuKB0g6A',
-		where: "Use = 'PR'"
+		from: '1dBmChEdPydgC_Ijad5jkDzS6TEjH0MMvuKB0g6A'
 	    },
-	    styles: [ { markerOptions: { iconName: 'large_red' } } ]
-	});
-
-	// create a layer for public airports
-	var public_airports = new google.maps.FusionTablesLayer({
-	    suppressInfoWindows: true,
-	    map: map,
-	    query: {
-		select: 'Latitude',
-		from: '1dBmChEdPydgC_Ijad5jkDzS6TEjH0MMvuKB0g6A',
-		where: "Use = 'PU'"
-	    },
-	    styles: [ { markerOptions: { iconName: 'large_green' } } ]
+	    styles: [ {
+		where: "Use = 'PR'",
+		markerOptions: { iconName: 'large_red' } 
+	    }, {
+		where: "Use = 'PU'",
+		markerOptions: { iconName: 'large_green' }
+	    } ]
 	});
 
 	// define a click handler to the icons
-	icon_click = function(event) {
+	google.maps.event.addListener(airports, 'click', function(event) {
 
 	    // get the location of the click
 	    var location = new google.maps.LatLng(event.row.Latitude.value,
@@ -68,10 +61,6 @@ $(function() {
 
 	    // show the info window
 	    infowindow.open(map);
-	}
-
-        // add the click handler to both layers
-	google.maps.event.addListener(private_airports, 'click', icon_click);
-	google.maps.event.addListener(public_airports, 'click', icon_click);
+	});
     }
 });
