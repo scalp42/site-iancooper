@@ -37,13 +37,13 @@ $(function() {
 						  event.row.Longitude.value);
 	    
 	    // put together some text to go in the info window
-	    info = '<strong>' +
-		   event.row.LocationID.value + ': </strong>' +
+	    info = '<div>Airport ID: <strong>' +
+		   event.row.LocationID.value + '</strong><hr />' +
 		   event.row.FacilityName.value + '<br />' +
 		   event.row.City.value + ', ' +
-		   event.row.State.value + '<br />'
+		   event.row.State.value + '<hr />'
 	           'Elevation: ' + event.row.Elevation.value + ' MSL<br />' + 
-		   'Sectional Chart: ' + event.row.ChartName.value
+		   'Sectional Chart: ' + event.row.ChartName.value + '</div>'
 
 	    // create the info window
 	    infowindow = new google.maps.InfoWindow({
