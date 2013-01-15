@@ -11,7 +11,7 @@ $(function() {
 		var item = event.clipboardData.items[i];
 
 		// check for image data
-		if (items.type.indexOf("image/") === 0) {
+		if (item.type.indexOf("image/") === 0) {
 		    
 		    // get the image data
 		    var blob = item.getAsFile();
