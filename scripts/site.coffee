@@ -104,6 +104,9 @@ show = (post) ->
     $('section > h1', article).first().remove()
     container.append article
 
+    # update the page title
+    document.title = "#{post.title} - Ian Cooper"
+
     # process special tags
     $('img[src$="#stretch-me"]', container).each () -> convertimg @
     $('pre > code', container).each () -> highlight @

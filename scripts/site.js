@@ -118,6 +118,7 @@ show = function(post) {
     article.append("<section>" + post.html + "</section>");
     $('section > h1', article).first().remove();
     container.append(article);
+    document.title = "" + post.title + " - Ian Cooper";
     $('img[src$="#stretch-me"]', container).each(function() {
       return convertimg(this);
     });
