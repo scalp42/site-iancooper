@@ -36,18 +36,18 @@
       "status": "published"
     },
     {
-      "date": "2013-01-04T09:42-0700",
-      "title": "Attachments to SampleManager Entities",
-      "slug": "attachments-to-samplemanager-entities",
-      "file": "attachments-to-samplemanager-entities.md",
-      "status": "draft"
-    },
-    {
       "date": "2013-01-07T14:12-0700",
       "title": "Google Maps + Fusion Tables",
       "slug": "google-maps-plus-fusion-tables",
       "file": "google-maps-plus-fusion-tables.md",
       "status": "published"
+    },
+    {
+      "date": "2013-01-15T12:08-0700",
+      "title": "Clipboard Access in JavaScript",
+      "slug": "clipboard-access-in-javascript",
+      "file": "clipboard-access-in-javascript.md",
+      "status": "draft"
     }
   ]
 }
