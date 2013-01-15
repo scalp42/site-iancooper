@@ -48,16 +48,16 @@ The clipboard item object has a `getAsFile()` function that will return the imag
         }
     }
 
-So let's give it a try!  Copy some image data to the clipboard, and then switch back to this browser window and press `Ctrl-V` or `Command-V` (or whatever the usual "paste" shortcut is for your operating system).  You should see the image appear below (it may be scaled down to fit in the box):
+So let's give it a try!  Copy some image data to the clipboard, and then switch back to this browser window and press `Ctrl-V` or `Command-V` (or whatever the usual "paste" shortcut is for your operating system).  You should see the image appear below:
 
 <style type="text/css">
   #clipboard {
     width: 100%;
     height: 400px;
-    border: 1px dash #ccc;
-    background-color: #f8f8ff;
+    border-width: 4px;
+    border-style: dashed;
+    border-color: #ccc;
     background-position: center center;
-    background-size: contain;
     background-repeat: no-repeat;
   }
 </style>
