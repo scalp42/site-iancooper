@@ -37,11 +37,11 @@ $(function() {
 						  event.row.Longitude.value);
 	    
 	    // put together some text to go in the info window
-	    info = 'Airport ID: <strong>' +
-		   event.row.LocationID.value + '</strong><hr />' +
+	    info = '<strong>' +
+		   event.row.LocationID.value + ': </strong>' +
 		   event.row.FacilityName.value + '<br />' +
 		   event.row.City.value + ', ' +
-		   event.row.State.value + '<hr />'
+		   event.row.State.value + '<br />'
 	           'Elevation: ' + event.row.Elevation.value + ' MSL<br />' + 
 		   'Sectional Chart: ' + event.row.ChartName.value
 
