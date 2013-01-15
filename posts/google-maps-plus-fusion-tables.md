@@ -1,6 +1,6 @@
 # Google Maps + Fusion Tables
 
-Let's say that we'd like to show the locations of all [part 139 certificated airports](http://www.faa.gov/airports/airport_safety/part139_cert/?p1=what) on a map.  We've separated the airports into two categories: public use (green markers) and private use (red markers).
+Let's say that we'd like to show the locations of all [14 CFR part 139 certificated airports](http://www.faa.gov/airports/airport_safety/part139_cert/?p1=what) on a map.  We've separated the airports into two categories: public use (green markers) and private use (red markers).
 
 <div id="139airports" style="width: 100%; height: 500px"></div>
 <script type="text/javascript" src="scripts/139airports.js"></script>
