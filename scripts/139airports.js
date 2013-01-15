@@ -29,12 +29,13 @@ $(function() {
 
 	// add a click handler to the icons
 	google.maps.event.addListener(airports, 'click', function(event) {
+
+	    console.dir(event);
+
 	    // get the location of the click
 	    var location = new google.maps.LatLng(event.row.Latitute.value,
 						  event.row.Longitude.value);
 	    
-	    console.dir(event);
-
 	    // create the info window
 	    infowindow = new google.maps.InfoWindow({
 		content: '<b>' + event.row.FacilityName.value + '</b>',
