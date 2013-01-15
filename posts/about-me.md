@@ -2,7 +2,7 @@
 
 ![Near Bonanza, Colorado in September 2012][me]
 
-I'm an [IT professional][communityits], web developer, and [laboratory informatics consultant][thermo], based in [beautiful Colorado Springs][cos].
+I'm an [IT professional][communityits], [web developer][gh], and [laboratory informatics consultant][thermo], based in [beautiful Colorado Springs][cos].
 
 ![Looking down on Colorado Springs][cosimg]
 
@@ -15,6 +15,7 @@ I've mostly [worked][linkedinprofile] in the IT field, for companies like [Micro
 [Curious about how this site is built?](/about-this-site)
 
 [communityits]: http://www.communityits.com/
+[gh]: https://github.com/icooper
 [thermo]: http://www.thermo.com/informatics/
 [cos]: http://www.visitcos.com/
 [wpi]: http://www.wpi.edu/
