@@ -5,7 +5,8 @@ $(function() {
 	if (event.clipboardData) {
 	    
 	    // get the clipboard contents
-	    if (var items = event.clipboardData.items) {
+	    var items = event.clipboardData.items;
+	    if (items) {
 		
 		console.dir(items);
 
