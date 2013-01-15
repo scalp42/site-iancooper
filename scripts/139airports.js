@@ -9,12 +9,14 @@ $(function() {
     // callback for when the API is loaded
     window.demo139airports_ready = function() {
 	
+	// create the map
 	var map = new google.maps.Map(document.getElementById('139airports'), {
 	    zoom: 4,
 	    center: new google.maps.LatLng(37.997, -95.801),
 	    mapTypeId: google.maps.MapTypeId.ROADMAP
 	});
 	
+	// create the FusionTables layer and add it to the map
 	var airports = new google.maps.FusionTablesLayer({
 	    suppressInfoWindows: true,
 	    map: map,
@@ -24,6 +26,27 @@ $(function() {
 	    },
 	    styles: [ { markerOptions: { iconName: 'large_red' } } ]
 	});
-	
+
+	// add a click handler to the icons
+	google.maps.event.addListener(airports, 'click', function(event) {
+	    // get the location of the click
+	    var location = new google.maps.LatLng(event.row.Latitute.value,
+						  event.row.Longitude.value);
+	    
+	    // create the info window
+	    infowindow = new google.maps.InfoWindow({
+		content: '<b>' + event.row.FacilityName.value + '</b>',
+		position: location,
+		pixelOffset: event.pixelOffset
+	    });
+
+	    // add a click listener so we can close the info window
+	    google.maps.event.addListener(infowindow, 'closeclick', function() {
+		infowindow.close()
+	    });
+
+	    // show the info window
+	    infowindow.open(map);
+	});
     }
 });
