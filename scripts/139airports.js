@@ -1,3 +1,7 @@
+/*
+ * I've wrapped the whole code section in a jQuery 'ready' function to ensure
+ * that it doesn't run before the DOM is fully loaded by the web browser.
+ */
 $(function() {
 
     // load the Google Maps API
