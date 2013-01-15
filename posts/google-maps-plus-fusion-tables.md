@@ -72,4 +72,4 @@ Here's the JavaScript code that was used:
         });
     }
 
-You can also see the [code on GitHub](https://github.com/icooper/site-iancooper/blob/gh-pages/scripts/139airports.js).
+_You can also see the [code on GitHub](https://github.com/icooper/site-iancooper/blob/gh-pages/scripts/139airports.js).  Feel free to use it as you'd like! Please keep in mind, though, that code samples are provided as-is and with no guarantees by myself or my employer._
