@@ -53,7 +53,9 @@ So let's give it a try!  Copy some image data to the clipboard, and then switch 
 <style type="text/css">
   #clipboard {
     width: 100%;
-    border: 2px solid black;
+    height: 400px;
+
+    border: 2px dashed #ccc;
     background-color: transparent;
     background-position: center center;
     background-size: contain;
@@ -62,7 +64,6 @@ So let's give it a try!  Copy some image data to the clipboard, and then switch 
 </style>
 <div id="clipboard"></div>
 
-_The above code is available [in this gist](https://gist.github.com/42eafd1b00a18c824b97).  Feel free to use it as you'd like!  Please keep in mind, though, that code samples are provided as-is and with no guarantees by myself or my employer.
+_The above code is available [in this gist](https://gist.github.com/42eafd1b00a18c824b97).  Feel free to use it as you'd like!  Please keep in mind, though, that code samples are provided as-is and with no guarantees by myself or my employer._
 
 <script type="text/javascript" src="/scripts/imgclip.js"></script>
-<div id="clipboard"></div>
