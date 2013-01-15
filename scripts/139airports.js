@@ -25,10 +25,10 @@ $(function() {
 		from: '1dBmChEdPydgC_Ijad5jkDzS6TEjH0MMvuKB0g6A'
 	    },
 	    styles: [ {
-		where: "Use = 'PR'",
+		where: "Use = 'PR'", // private use airports
 		markerOptions: { iconName: 'large_red' } 
 	    }, {
-		where: "Use = 'PU'",
+		where: "Use = 'PU'", // public use airports
 		markerOptions: { iconName: 'large_green' }
 	    } ]
 	});
