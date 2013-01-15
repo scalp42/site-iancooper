@@ -26,8 +26,9 @@ $(function() {
 			var image = document.createElement('img');
 			img.src = source;
 			document.getElementById('clipboard').appendChild(image);
+		    }
 		}
-
+		
 	    }
 	}
     }
