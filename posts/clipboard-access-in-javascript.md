@@ -13,7 +13,9 @@ Let's start by checking to see if our browser supports the Clipboard API.  If it
 Let's look at the event handler now.  We'll start by checking to see if there's any clipboard data available:
 
     #javascript
+    // our paste event handler
     var pasteHandler = function(event) {
+    
         // check for incoming clipboard data
         if (event.clipboardData && event.clipboardData.items) {
 
