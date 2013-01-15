@@ -36,19 +36,33 @@ The clipboard item object has a `getAsFile()` function that will return the imag
     #javascript
                     // get the data as an object URL
                     var objURL = window.URL.createObjectURL(item.getAsFile());
-
+    
                     // create an image object from the object URL
                     var image = new Image();
                     image.src = objURL;
-
-		    // add the image to the document
+    
+                    // add the image to the document
                     document.body.appendChild(image);
                 }
             }
         }
     }
 
-So let's give it a try!
+So let's give it a try!  Copy some image data to the clipboard, and then switch back to this browser window and press `Ctrl-V` or `Command-V` (or whatever the usual "paste" shortcut is for your operating system).  You should see the image appear below (it may be scaled down to fit in the box):
+
+<style type="text/css">
+  #clipboard {
+    width: 100%;
+    border: 2px solid black;
+    background-color: transparent;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+</style>
+<div id="clipboard"></div>
+
+_The above code is available [in this gist](https://gist.github.com/42eafd1b00a18c824b97).  Feel free to use it as you'd like!  Please keep in mind, though, that code samples are provided as-is and with no guarantees by myself or my employer.
 
 <script type="text/javascript" src="/scripts/imgclip.js"></script>
 <div id="clipboard"></div>
