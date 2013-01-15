@@ -14,4 +14,4 @@ Here's some JavaScript code to show [the locations of all part 139 certificated 
     }
 
 <script type="text/javascript" src="scripts/139airports.js"></script>
-<div id="139airports" style="width: 100%; height: 500px"></div>
+<div id="139airports" style="width: 100%; height: 600px"></div>
