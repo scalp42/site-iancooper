@@ -33,7 +33,7 @@ $(function() {
 	    console.dir(event);
 
 	    // get the location of the click
-	    var location = new google.maps.LatLng(event.row.Latitute.value,
+	    var location = new google.maps.LatLng(event.row.Latitude.value,
 						  event.row.Longitude.value);
 	    
 	    // create the info window
