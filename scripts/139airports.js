@@ -9,7 +9,7 @@ $(function() {
     // callback for when the API is loaded
     window.demo139airports_ready = function() {
 	
-	// create the map
+	// create the map, centered on the continental US
 	var map = new google.maps.Map(document.getElementById('139airports'), {
 	    zoom: 4,
 	    center: new google.maps.LatLng(37.997, -95.801),
@@ -29,7 +29,7 @@ $(function() {
 	});
 
 	// create a layer for public airports
-	var private_airports = new google.maps.FusionTablesLayer({
+	var public_airports = new google.maps.FusionTablesLayer({
 	    suppressInfoWindows: true,
 	    map: map,
 	    query: {
