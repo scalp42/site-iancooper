@@ -33,6 +33,8 @@ $(function() {
 	    var location = new google.maps.LatLng(event.row.Latitute.value,
 						  event.row.Longitude.value);
 	    
+	    console.dir(event);
+
 	    // create the info window
 	    infowindow = new google.maps.InfoWindow({
 		content: '<b>' + event.row.FacilityName.value + '</b>',
