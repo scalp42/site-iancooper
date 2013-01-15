@@ -18,13 +18,14 @@ $(function() {
 
 			// get the image data
 			var blob = items[i].getAsFile();
+			console.dir(items[i]);
 
 			// create a URL
 			var source = window.URL.createObjectURL(blob);
 
 			// show the image
 			var image = document.createElement('img');
-			img.src = source;
+			image.src = source;
 			document.getElementById('clipboard').appendChild(image);
 		    }
 		}
