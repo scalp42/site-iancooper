@@ -36,9 +36,18 @@ $(function() {
 	    var location = new google.maps.LatLng(event.row.Latitude.value,
 						  event.row.Longitude.value);
 	    
+	    // put together some text to go in the info window
+	    info = 'Airport ID: <strong>' +
+		   event.row.LocationID.value + '</strong><hr />' +
+		   event.row.FacilityName.value + '<br />' +
+		   event.row.City.value + ', ' +
+		   event.row.State.value + '<hr />'
+	           'Elevation: ' + event.row.Elevation.value + ' MSL<br />' + 
+		   'Sectional Chart: ' + event.row.ChartName.value
+
 	    // create the info window
 	    infowindow = new google.maps.InfoWindow({
-		content: '<b>' + event.row.FacilityName.value + '</b>',
+		content: info,
 		position: location,
 		pixelOffset: event.pixelOffset
 	    });
