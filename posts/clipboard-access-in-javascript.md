@@ -54,7 +54,7 @@ So let's give it a try!  Copy some image data to the clipboard, and then switch 
   #clipboard {
     width: 100%;
     height: 400px;
-    border: 3px solid #e9242e;
+    border: 1px dash #ccc;
     background-color: #f8f8ff;
     background-position: center center;
     background-size: contain;
