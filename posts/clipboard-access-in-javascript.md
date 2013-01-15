@@ -37,9 +37,11 @@ The clipboard item object has a `getAsFile()` function that will return the imag
                     // get the data as an object URL
                     var objURL = window.URL.createObjectURL(item.getAsFile());
 
-                    // show the image
-                    var image = document.createElement('img');
+                    // create an image object from the object URL
+                    var image = new Image();
                     image.src = objURL;
+
+		    // add the image to the document
                     document.body.appendChild(image);
                 }
             }
