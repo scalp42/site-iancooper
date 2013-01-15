@@ -15,7 +15,7 @@ $(function() {
 	    mapTypeId: google.maps.MapTypeId.ROADMAP
 	});
 	
-	var airports = new googlemaps.FusionTablesLayer({
+	var airports = new google.maps.FusionTablesLayer({
 	    suppressInfoWindows: true,
 	    map: map,
 	    query: {
