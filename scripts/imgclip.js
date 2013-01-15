@@ -11,7 +11,10 @@
 $(function() {
   var showImage;
   showImage = function(data) {
-    return $('#clipboard').css('background-image', window.URL.createObjectURL(data));
+    var url;
+    url = window.URL.createObjectURL(data);
+    alert(url);
+    return $('#clipboard').css('background-image', "url(" + url + ")");
   };
   if (window.Clipboard) {
     return window.addEventListener('paste', function(event) {
