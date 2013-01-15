@@ -8,8 +8,6 @@ $(function() {
 	    var items = event.clipboardData.items;
 	    if (items) {
 		
-		console.dir(items);
-
 		// loop through the clipboard items
 		for (var i = 0; i < items.length; i++) {
 		    
@@ -18,7 +16,6 @@ $(function() {
 
 			// get the image data
 			var blob = items[i].getAsFile();
-			console.dir(items[i]);
 
 			// create a URL
 			var source = window.URL.createObjectURL(blob);
@@ -35,7 +32,7 @@ $(function() {
     }
 
     // check for clipboard support
-    if (window.Clipboard) {
+    if (window.clipboard) {
 	window.addEventListener("paste", pasteHandler);
     }
 });
