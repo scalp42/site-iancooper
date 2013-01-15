@@ -53,7 +53,7 @@ So let's give it a try!  Copy some image data to the clipboard, and then switch 
 <style type="text/css">
   #clipboard {
     width: 100%;
-    height: 400px;
+    height: 300px;
     border-width: 4px;
     border-style: dashed;
     border-color: #ccc;
