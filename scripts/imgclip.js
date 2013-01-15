@@ -11,18 +11,15 @@ $(function() {
 		var item = event.clipboardData.items[i];
 
 		// check for image data
-		if (item.type.indexOf("image/") === 0) {
+		if (item.type.indexOf('image/') === 0) {
 		    
-		    // get the image data
-		    var blob = item.getAsFile();
-		    
-		    // create a URL
-		    var source = window.URL.createObjectURL(blob);
+		    // get the data as an object URL
+		    var objURL = window.URL.createObjectURL(item.getAsFile());
 		    
 		    // show the image
 		    var image = document.createElement('img');
-		    image.src = source;
-		    document.getElementById('clipboard').appendChild(image);
+		    image.src = objURL;
+		    document.body.appendChild(image);
 		}
 	    }
 	}
@@ -30,9 +27,9 @@ $(function() {
 
     // check for clipboard support
     if (window.Clipboard) {
-	window.addEventListener("paste", pasteHandler);
-	$('#clipboard-support').text(' (and your browser does)');
+	window.addEventListener('paste', pasteHandler);
+	console.log('clipboard access is supported in this browser');
     } else {
-	$('#clipboard-support').text(" (and your browser doesn't; sorry)");
+	console.log('clipboard access IS NOT supported in this browser');
     }
 });
