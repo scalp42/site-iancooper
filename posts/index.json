@@ -55,6 +55,13 @@
       "slug": "imgclip",
       "file": "imgclip.md",
       "status": "published"
+    },
+    {
+      "date": "2013-01-16T08:38-0700",
+      "title": "Entity Attachments in SampleManager",
+      "slug": "entity-attachments-in-samplemanager",
+      "file": "entity-attachments-in-samplemanager.md",
+      "status": "draft"
     }
   ]
 }
