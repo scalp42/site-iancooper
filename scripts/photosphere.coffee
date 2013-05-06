@@ -7,6 +7,16 @@ if hash.length is 3 or hash.length is 5
   # parse hash
   [user, album, photo, width, height] = hash
 
+# figure it out based on G+ photo page url
+else if hash.length >= 1 and (hash[0] is 'http:' or hash[0] is 'https:')
+
+  user = hash[hash.length - 4]
+  album = hash[hash.length - 2]
+  photo = hash[hash.length - 1]
+
+# if we figured it out
+if hash?
+
   # set default width and height
   unless width? and height?
     width = $(window).width()
