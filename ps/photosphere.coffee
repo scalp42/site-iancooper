@@ -33,12 +33,6 @@ if hash?
 
   # get image information
   $.getJSON url, params, (data, textStatus, jqXHR) ->
-    console.dir
-      url: url
-      params: params
-      data: data
-      textStatus: textStatus
-      jqXHR: jqXHR
 
     if data.feed?.exif$tags? and _.some(data.feed.gphoto$streamId, (i) -> i.$t is 'photosphere')
 

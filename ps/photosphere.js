@@ -24,13 +24,6 @@ if (hash != null) {
   };
   $.getJSON(url, params, function(data, textStatus, jqXHR) {
     var croppedsize, displaysize, fullsize, imageurl, offset, _ref;
-    console.dir({
-      url: url,
-      params: params,
-      data: data,
-      textStatus: textStatus,
-      jqXHR: jqXHR
-    });
     if ((((_ref = data.feed) != null ? _ref.exif$tags : void 0) != null) && _.some(data.feed.gphoto$streamId, function(i) {
       return i.$t === 'photosphere';
     })) {
