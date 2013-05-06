@@ -22,8 +22,9 @@ if (hash != null) {
     'full-exif': 'true',
     alt: 'json'
   };
-  $.getJSON(url, params, function(data, textStatus, jqXHR) {
+  $.getJSON(url, params, function(data) {
     var croppedsize, displaysize, fullsize, imageurl, offset, _ref;
+    console.dir(data.feed);
     if ((((_ref = data.feed) != null ? _ref.exif$tags : void 0) != null) && _.some(data.feed.gphoto$streamId, function(i) {
       return i.$t === 'photosphere';
     })) {
@@ -33,7 +34,13 @@ if (hash != null) {
       offset = [data.feed.exif$tags.exif$CroppedAreaLeftPixels.$t, data.feed.exif$tags.exif$CroppedAreaTopPixels.$t].join(',');
       displaysize = [width, height].join(',');
       $('body').append($('<g:panoembed />').attr('imageurl', imageurl).attr('fullsize', fullsize).attr('croppedsize', croppedsize).attr('offset', offset).attr('displaysize', displaysize));
-      return gapi.panoembed.go();
+      gapi.panoembed.go();
+      return mixpanel.track('photosphere show', {
+        title: data.feed.title.$t,
+        url: imageurl,
+        credit: data.feed.media$group.media$credit[0].$t,
+        description: data.feed.media$group.media$description.$t
+      });
     }
   });
 }

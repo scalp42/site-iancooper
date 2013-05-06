@@ -32,7 +32,9 @@ if hash?
     alt: 'json'
 
   # get image information
-  $.getJSON url, params, (data, textStatus, jqXHR) ->
+  $.getJSON url, params, (data) ->
+
+    console.dir data.feed
 
     if data.feed?.exif$tags? and _.some(data.feed.gphoto$streamId, (i) -> i.$t is 'photosphere')
 
@@ -66,3 +68,9 @@ if hash?
         .attr('displaysize', displaysize)
 
       gapi.panoembed.go()
+
+      mixpanel.track 'photosphere show'
+        title: data.feed.title.$t
+        url: imageurl
+        credit: data.feed.media$group.media$credit[0].$t
+        description: data.feed.media$group.media$description.$t
