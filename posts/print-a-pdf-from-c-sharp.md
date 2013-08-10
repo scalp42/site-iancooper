@@ -1,6 +1,9 @@
 # Print a PDF From C#
 
-Recently, a colleague of mine was wondering how to print a PDF file to a specified print queue from a .NET application.
+Recently, a colleague of mine was wondering how to print a PDF file on the application server to a specified print queue
+from a .NET application for a LIMS implementation project. We could reasonably require the client to have Adobe Reader
+installed on the server, but other third-party libraries were out of the question.
+
 Some digging around produced [this document](http://partners.adobe.com/public/developer/en/acrobat/sdk/pdf/intro_to_sdk/DeveloperFAQ.pdf)
 which includes, on page 27, the command-line parameters to the Acrobat and Acrobat Reader executables.
 We use the `/t` parameter to send a document to a specified Windows printer queue, along with `/h` to start minimized
