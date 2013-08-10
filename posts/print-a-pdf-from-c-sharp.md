@@ -3,14 +3,14 @@
 Recently, a colleague of mine was wondering how to print a PDF file to a specified print queue from a .NET application.  This is what I came up with as a solution
 
     #cs
-    /// <summary>
+    /// &lt;summary&gt;
     /// Prints a PDF file to the specified printer using Adobe Reader.
     /// Tested with Adobe Reader XI, but should work with any recent version.
     /// The registry path might be different on a 64-bit system.
-    /// </summary>
-    /// <param name="PdfFile">path to the PDF file to print</param>
-    /// <param name="PrinterName">name of the print queue</param>
-    /// <returns>true if no exception</returns>
+    /// &lt;/summary&gt;
+    /// &lt;param name="PdfFile"&gt;path to the PDF file to print&lt;/param&gt;
+    /// &lt;param name="PrinterName"&gt;name of the print queue&lt;/param&gt;
+    /// &lt;returns&gt;true if no exception&lt;/returns&gt;
     static bool PrintPdf(string PdfFile, string PrinterName) {
     
         // our not successful yet
