@@ -2,7 +2,7 @@
 
 Recently, a colleague of mine was wondering how to print a PDF file to a specified print queue from a .NET application.  This is what I came up with as a solution
 
-    #csharp
+    #cs
     /// <summary>
     /// Prints a PDF file to the specified printer using Adobe Reader.
     /// Tested with Adobe Reader XI, but should work with any recent version.
