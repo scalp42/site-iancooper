@@ -68,3 +68,5 @@ print queue, the application automatically closes.
 
 Note that I used the full namespaced identifiers for `Microsoft.Win32.Registry` and `System.Diagnostics.Process`;
 these should be `import`ed instead.
+
+_The above code is available [in this gist](https://gist.github.com/icooper/08c0ce25702c91825ceb).  Feel free to use it as you'd like!  Please keep in mind, though, that code samples are provided as-is and with no guarantees by myself or my employer._
