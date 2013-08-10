@@ -2,7 +2,7 @@
 
 ![Me!][me]
 
-I'm an [software developer][gh], and [laboratory informatics consultant][lims], based in [beautiful Colorado Springs][cos].
+I'm an [software developer][gh] and [laboratory informatics consultant][lims] based in [beautiful Colorado Springs][cos].
 
 ![Looking down on Colorado Springs][cosimg]
 
