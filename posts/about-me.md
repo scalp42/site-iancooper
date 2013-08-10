@@ -10,7 +10,7 @@ I have studied at [Worcester Polytechnic Institute][wpi], [Rochester Institute o
 
 ![Pikes Peak on Christmas Day 2012][ppxmas]
 
-In the past, [I've worked][li] for companies like [Microsoft][ms], [Celanese][ce], and [Thermo Fisher Scientific][thermo].
+In the past, [I've worked][li] for companies like [Microsoft][ms], [Celanese][ce], and [Thermo Fisher Scientific][tmo].
 
 [Curious about how this site is built?](/about-this-site)
 
@@ -24,6 +24,7 @@ In the past, [I've worked][li] for companies like [Microsoft][ms], [Celanese][ce
 [li]: http://linkedin.com/in/iancooper
 [ms]: http://www.microsoft.com/
 [ce]: http://www.celanese.com/
+[tmo]: http://www.thermo.com/
 
 [me]: https://lh3.googleusercontent.com/-XkXKJex1-Qs/UF_is7HVFzI/AAAAAAAAFJQ/ptT0iO608yw/w1024-h400-n-k/P9223118.JPG#stretch-me
 [cosimg]: https://lh5.googleusercontent.com/-HIElyoRcIN8/T5eDCdCjtnI/AAAAAAAACvo/TVpSrgdD2Jc/w1024-h400-n/IMG_20120423_170645.jpg#stretch-me
