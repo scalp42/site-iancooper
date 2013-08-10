@@ -2,7 +2,10 @@
 
 Recently, a colleague of mine was wondering how to print a PDF file to a specified print queue from a .NET application.
 Some digging around produced [this document](http://partners.adobe.com/public/developer/en/acrobat/sdk/pdf/intro_to_sdk/DeveloperFAQ.pdf)
-which includes, on page 27, the command-line option to the Acrobat and Acrobat Reader executables.
+which includes, on page 27, the command-line parameters to the Acrobat and Acrobat Reader executables.
+We use the `/t` parameter to send a document to a specified Windows printer queue, along with `/h` to start minimized
+and `/s` to skip the splash screen (I believe that this would apply only to Acrobat).  Once the document is sent to the
+print queue, the application automatically closes.
 
     #cs
     /// &lt;summary&gt;
